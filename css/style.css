@@ -735,6 +735,10 @@ main {
   padding: 32px;
 }
 
+.lightbox[hidden] {
+  display: none;
+}
+
 .lightbox-inner {
   background: var(--color-bg);
   border-radius: 12px;
