@@ -3,38 +3,228 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Page</title>
+  <title>류인수 — 정리하고, 질문하고, 적응합니다</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,800;1,400&family=Archivo+Black&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
   <header class="site-header">
-    <h1>My Page</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-name">류인수</span>
+        <span class="brand-en"><i>INSU RYU</i></span>
+      </div>
+      <nav aria-label="섹션 바로가기">
+        <a href="#about">ABOUT</a>
+        <a href="#strengths">강점</a>
+        <a href="#timeline">TIMELINE</a>
+        <a href="#scope">공개 범위</a>
+      </nav>
+      <button type="button" id="motion-toggle" aria-pressed="false">움직임 줄이기</button>
+    </div>
   </header>
 
-  <main>
-    <section id="about">
-      <h2>About</h2>
-      <p>Welcome to my personal page.</p>
+  <main id="main">
+    <section id="about" class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">안녕하세요,<br />류인수입니다</h1>
+        <p class="hero-lead">저는 실패를 두려워하지 않고, 작은 시도로부터 성장하는 사람입니다.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#strengths">강점 3가지 보기 →</a>
+          <a class="btn btn-outline" href="#timeline">활동 기록 보기</a>
+        </div>
+      </div>
+
+      <div class="hero-notes">
+        <div class="note note-yellow">
+          <span class="note-pin" aria-hidden="true"></span>
+          <p class="note-label">이 페이지는 / WHY</p>
+          <p class="note-text">저에 대해 궁금해하시는 모든 분들에게 저를 보여드리기 위해 만들었습니다.</p>
+        </div>
+        <div class="note note-blue">
+          <label for="free-memo">메모</label>
+          <textarea id="free-memo" placeholder="자유롭게 타이핑하세요" rows="4"></textarea>
+          <button type="button" id="memo-clear">지우기</button>
+        </div>
+      </div>
     </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <p>Coming soon.</p>
+    <section id="strengths" class="section section-alt" aria-labelledby="strengths-title">
+      <h2 id="strengths-title">Strength</h2>
+      <p class="section-lead">카드를 클릭해보세요. 키보드에서는 Tab으로 이동한 뒤<br />Enter 또는 Space를 누르세요.</p>
+
+      <div class="strength-grid">
+        <div class="strength-card">
+          <h3>
+            <button type="button" class="strength-toggle" aria-expanded="true" aria-controls="s1-panel">
+              <span class="strength-num">01</span>
+              <span class="strength-title">정리하는 사람</span>
+              <span class="strength-sign" aria-hidden="true">−</span>
+            </button>
+          </h3>
+          <dl id="s1-panel" class="strength-panel">
+            <div><dt>상황</dt><dd>새로운 것을 배울 때</dd></div>
+            <div><dt>행동</dt><dd>이전에는 노트나 태블릿에, 이제는 노션을 이용해서<br />깔끔하게 필기 정리</dd></div>
+            <div><dt>결과</dt><dd class="strong">복습할 때, 헷갈릴 때 다시 보며 시간을 절약</dd></div>
+            <div class="strength-image-row">
+              <button type="button" class="strength-image-btn" id="tablet-shot-open" aria-label="태블릿 필기 캡처 크게 보기">
+                <img src="assets/tablet-note.jpg" alt="네트워크 수업 내용을 도식과 계산식으로 정리한 태블릿 필기 캡처" />
+              </button>
+            </div>
+          </dl>
+        </div>
+
+        <div class="strength-card">
+          <h3>
+            <button type="button" class="strength-toggle" aria-expanded="false" aria-controls="s2-panel">
+              <span class="strength-num">02</span>
+              <span class="strength-title">질문하는 사람</span>
+              <span class="strength-sign" aria-hidden="true">+</span>
+            </button>
+          </h3>
+          <dl id="s2-panel" class="strength-panel" hidden>
+            <div><dt>상황</dt><dd>다음 단계 진행에 문제가 없어도 짚이는 부분이 생기면</dd></div>
+            <div><dt>행동</dt><dd>그냥 넘기지 않고 질문</dd></div>
+            <div><dt>결과</dt><dd class="strong">이해한 김에 적용까지 해봄</dd></div>
+          </dl>
+        </div>
+
+        <div class="strength-card">
+          <h3>
+            <button type="button" class="strength-toggle" aria-expanded="false" aria-controls="s3-panel">
+              <span class="strength-num">03</span>
+              <span class="strength-title">적응이 빠른 사람</span>
+              <span class="strength-sign" aria-hidden="true">+</span>
+            </button>
+          </h3>
+          <dl id="s3-panel" class="strength-panel" hidden>
+            <div><dt>상황</dt><dd>학교 공지를 보고 전공 관련 역량을 기를 수 있을 거라 기대하며 현장실습학기제에 지원하여 4개월간 근무했는데, 실제 담당 업무는 뉴스 기사 작성이 전부였음</dd></div>
+            <div><dt>행동</dt><dd>기대와 다른 업무였지만 불평하기보다 맡은 일에 최선을 다했고, 어떻게 하면 인기 있는 글이 될지 고민하며 작성</dd></div>
+            <div><dt>결과</dt><dd class="strong">작성한 기사가 조회수 70만뷰를 기록</dd></div>
+          </dl>
+        </div>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Coming soon.</p>
+    <section id="timeline" class="section" aria-labelledby="timeline-title">
+      <h2 id="timeline-title">Timeline</h2>
+      <ol class="timeline">
+        <li>
+          <p class="timeline-date">2019.03</p>
+          <h3>영남대학교 정보통신공학과 입학</h3>
+          <ul>
+            <li>IT 분야에 대한 관심</li>
+          </ul>
+        </li>
+        <li>
+          <p class="timeline-date">2022.01 – 2023.10</p>
+          <h3>기상청에서 군 복무</h3>
+          <ul>
+            <li>출입자 안내 및 확인, 행정 보조 업무</li>
+          </ul>
+        </li>
+        <li>
+          <p class="timeline-date">2025.09 - 2025.12</p>
+          <h3>패스트뷰 인턴 근무</h3>
+          <ul>
+            <li>디지털 콘텐츠 제작 및 구글 애널리틱스 사용 경험</li>
+          </ul>
+        </li>
+        <li class="timeline-last">
+          <p class="timeline-date">2026.08 – 2026.11</p>
+          <h3>SKT ALEPH 과정</h3>
+          <ul>
+            <li>보안·네트워크·AI Agent 활용</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="more" class="section section-alt" aria-labelledby="more-title">
+      <h2 id="more-title" class="visually-hidden">그 외</h2>
+      <div class="more-grid">
+        <div>
+          <h3>Likes</h3>
+          <ul class="likes-list">
+            <li>
+              <svg viewBox="0 0 48 48" role="img" aria-label="게임">
+                <rect x="4" y="15" width="40" height="22" rx="11" fill="none" stroke="#17150F" stroke-width="2.2" />
+                <line x1="12" y1="22" x2="12" y2="30" stroke="#17150F" stroke-width="2.2" stroke-linecap="round" />
+                <line x1="8" y1="26" x2="16" y2="26" stroke="#17150F" stroke-width="2.2" stroke-linecap="round" />
+                <circle cx="34" cy="23" r="2.6" fill="#E24A12" />
+                <circle cx="39" cy="29" r="2.6" fill="#17150F" />
+              </svg>
+            </li>
+            <li>
+              <svg viewBox="0 0 48 48" role="img" aria-label="음악">
+                <line x1="20" y1="10" x2="20" y2="33" stroke="#17150F" stroke-width="2.2" stroke-linecap="round" />
+                <line x1="36" y1="7" x2="36" y2="29" stroke="#17150F" stroke-width="2.2" stroke-linecap="round" />
+                <path d="M20 10 L36 7" stroke="#17150F" stroke-width="2.2" stroke-linecap="round" />
+                <ellipse cx="15" cy="34" rx="5.4" ry="4.4" fill="#FFD84D" stroke="#17150F" stroke-width="2.2" />
+                <ellipse cx="31" cy="30" rx="5.4" ry="4.4" fill="none" stroke="#17150F" stroke-width="2.2" />
+              </svg>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Used Tools</h3>
+          <ul class="tag-list">
+            <li>C</li>
+            <li>Python</li>
+            <li>MySQL</li>
+            <li>Linux</li>
+            <li>HTML/CSS</li>
+            <li>Claude</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Language</h3>
+          <ul class="plain-list">
+            <li>TOEIC 880</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="scope" class="section" aria-labelledby="scope-title">
+      <h2 id="scope-title">Scope</h2>
+      <div class="scope-grid">
+        <div class="scope-card scope-public">
+          <h3>공개합니다</h3>
+          <ul>
+            <li>강점 3가지</li>
+            <li>프로젝트</li>
+            <li>사용하는 도구와 작업 방식</li>
+          </ul>
+        </div>
+        <div class="scope-card scope-private">
+          <h3>공개하지 않습니다</h3>
+          <ul>
+            <li>연락처, 주소, 생년월일 등 개인 식별 정보</li>
+            <li>학번·성적 등 학적 정보</li>
+          </ul>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 My Page</p>
+  <div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="태블릿 필기 캡처 크게 보기">
+    <div class="lightbox-inner">
+      <button type="button" id="lightbox-close">닫기 (Esc)</button>
+      <img src="assets/tablet-note.jpg" alt="네트워크 수업 내용을 도식과 계산식으로 정리한 태블릿 필기 캡처" />
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-thanks">감사합니다</p>
+      <p class="footer-meta">RYU INSU — 2026 PORTFOLIO</p>
+    </div>
   </footer>
 
   <script src="js/main.js"></script>
