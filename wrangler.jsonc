@@ -15,7 +15,7 @@
     {
       "binding": "DB",
       "database_name": "mypage",
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "b12e94fc-68fb-4fdd-af59-fa8f6a8c0241",
       "migrations_dir": "migrations"
     }
   ],
