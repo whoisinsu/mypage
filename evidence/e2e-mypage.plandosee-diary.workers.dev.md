@@ -1,8 +1,8 @@
 # 패스키 확인 기록 (자동 테스트)
 
 - 대상: https://mypage.plandosee-diary.workers.dev
-- 실행 시각: 2026-10-20T12:23:51.178Z
-- 계정: `alice-97fip`, `bob-97fip` (테스트용으로 만든 계정)
+- 실행 시각: 2026-10-20T15:49:34.602Z
+- 계정: `alice-tvnj5`, `bob-tvnj5` (테스트용으로 만든 계정)
 - 인증기: 이 스크립트 안의 소프트웨어 인증기(P-256 키를 메모리에서 만들고, 개인키는 내보낼 수 없게 생성)
 - 세션 쿠키 값은 앞 4자와 뒤 2자만 남기고 가렸습니다.
 
@@ -49,7 +49,7 @@ GET /api/private
 관련 통과 기준: T08-C19, C20, C21, C22, C23, C24, C36
 
 
-**[alice-97fip]** `POST /api/register/options` → **200**
+**[alice-tvnj5]** `POST /api/register/options` → **200**
 
 ```http
 POST /api/register/options
@@ -59,7 +59,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 요청 본문
 ```json
 {
-  "username": "alice-97fip",
+  "username": "alice-tvnj5",
   "passkeyName": "alice 노트북 (테스트 인증기)"
 }
 ```
@@ -67,14 +67,14 @@ Origin: https://mypage.plandosee-diary.workers.dev
 응답 본문
 ```json
 {
-  "challenge": "yy68sJ0HyouPL28DTnOd80kxypO160Nbl6NbvCmVpr8",
+  "challenge": "pddWFYFGmFhCN7WNVsFI7KbszIdK_mBi48Vt7xwi2Xo",
   "rp": {
     "name": "류인수 소개 페이지",
     "id": "mypage.plandosee-diary.workers.dev"
   },
   "user": {
-    "id": "17Csr1AiJYJxstc1yzCXu3v7YjgSwhqlCgw2lau5TTQ",
-    "name": "alice-97fip",
+    "id": "L_S6KrXuzTWJRtsPk3GRnSf0j64Dd8w7fFNppzq_tHk",
+    "name": "alice-tvnj5",
     "displayName": ""
   },
   "pubKeyCredParams": [
@@ -107,7 +107,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 
-**[alice-97fip]** `POST /api/register/verify` → **200**
+**[alice-tvnj5]** `POST /api/register/verify` → **200**
 
 ```http
 POST /api/register/verify
@@ -118,12 +118,12 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "response": {
-    "id": "-EFp4K7kaHQmqNbiHdSzyQ",
-    "rawId": "-EFp4K7kaHQmqNbiHdSzyQ",
+    "id": "f2DT-UyIGYo8rgafHBDrVw",
+    "rawId": "f2DT-UyIGYo8rgafHBDrVw",
     "type": "public-key",
     "response": {
-      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoieXk2OHNKMEh5b3VQTDI4RFRuT2Q4MGt4eXBPMTYwTmJsNk5idkNtVnByOCIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
-      "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YViU_EI4k4ifHRiD6Mz5tz6oE6bQQ8S-0Be8NeWl1zZ7UalFAAAAAAAAAAAAAAAAAAAAAAAAAAAAEPhBaeCu5Gh0JqjW4h3Us8mlAQIDJiABIVggo1Gozg6qc6zRFmkuUe9xtIjPUPi5GLIKBc0uIr510kMiWCD5jkD1eipRa-CrWSOcAahkfe8KLl_fePJxHR7Hy1c4EA",
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoicGRkV0ZZRkdtRmhDTjdXTlZzRkk3S2JzeklkS19tQmk0OFZ0N3h3aTJYbyIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
+      "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YViU_EI4k4ifHRiD6Mz5tz6oE6bQQ8S-0Be8NeWl1zZ7UalFAAAAAAAAAAAAAAAAAAAAAAAAAAAAEH9g0_lMiBmKPK4GnxwQ61elAQIDJiABIVggWu7_WNFgZiQtcP2Bbm5ecbl2Z2ij2mVngQOMNorWrKYiWCB-0sBlOMBn7rpPGZb97NmoVTeqLKRp2GFYC62zze8aeA",
       "transports": [
         "internal"
       ]
@@ -134,18 +134,18 @@ Origin: https://mypage.plandosee-diary.workers.dev
 }
 ```
 
-응답 헤더: `Set-Cookie: __Host-sid=aq87…(가림)…YM; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=7200`
+응답 헤더: `Set-Cookie: __Host-sid=qGO6…(가림)…es; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=7200`
 
 응답 본문
 ```json
 {
   "verified": true,
   "storedCredential": {
-    "id": "-EFp4K7kaHQmqNbiHdSzyQ",
+    "id": "f2DT-UyIGYo8rgafHBDrVw",
     "name": "alice 노트북 (테스트 인증기)",
-    "createdAt": 1792499033073,
+    "createdAt": 1792511376618,
     "lastUsedAt": null,
-    "publicKey": "pQECAyYgASFYIKNRqM4OqnOs0RZpLlHvcbSIz1D4uRiyCgXNLiK-ddJDIlgg-Y5A9XoqUWvgq1kjnAGoZH3vCi5f33jycR0ex8tXOBA",
+    "publicKey": "pQECAyYgASFYIFru_1jRYGYkLXD9gW5uXnG5dmdoo9plZ4EDjDaK1qymIlggftLAZTjAZ-66TxmW_ezZqFU3qiykadhhWAuts83vGng",
     "publicKeyFormat": "COSE_Key (base64url) — 서명을 확인하는 데만 쓰는 공개키",
     "counter": 0,
     "transports": [
@@ -163,7 +163,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 - ✅ 등록 요청 본문에 개인키 항목이 없음(id·clientDataJSON·attestationObject·transports뿐)
 - ✅ 서버에 공개키와 패스키 이름이 저장됨
 
-**[bob-97fip]** `POST /api/register/options` → **200**
+**[bob-tvnj5]** `POST /api/register/options` → **200**
 
 ```http
 POST /api/register/options
@@ -173,7 +173,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 요청 본문
 ```json
 {
-  "username": "bob-97fip",
+  "username": "bob-tvnj5",
   "passkeyName": "bob 노트북 (테스트 인증기)"
 }
 ```
@@ -181,14 +181,14 @@ Origin: https://mypage.plandosee-diary.workers.dev
 응답 본문
 ```json
 {
-  "challenge": "Fc9ltdzoRGChsVz4Xt9kIN7uMnGMkrFywLL7FonZT5A",
+  "challenge": "2jWXkkuMPtop8fc26K_y7efhoc31HWHLLY8oUdoLGnk",
   "rp": {
     "name": "류인수 소개 페이지",
     "id": "mypage.plandosee-diary.workers.dev"
   },
   "user": {
-    "id": "OsTlKnn6HHosBXBP9NTgmC4TNNL46Jp9hzQb-AypO18",
-    "name": "bob-97fip",
+    "id": "Ud3NKdTnmgKKp8M_RuhRB2AXl7LaS9l_SV-wcGRd2rk",
+    "name": "bob-tvnj5",
     "displayName": ""
   },
   "pubKeyCredParams": [
@@ -221,7 +221,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 
-**[bob-97fip]** `POST /api/register/verify` → **200**
+**[bob-tvnj5]** `POST /api/register/verify` → **200**
 
 ```http
 POST /api/register/verify
@@ -232,12 +232,12 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "response": {
-    "id": "yxVMxQaXfAWkYi60wu-WUg",
-    "rawId": "yxVMxQaXfAWkYi60wu-WUg",
+    "id": "_R162Qt1Ii_cG_4T1-R-wQ",
+    "rawId": "_R162Qt1Ii_cG_4T1-R-wQ",
     "type": "public-key",
     "response": {
-      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiRmM5bHRkem9SR0Noc1Z6NFh0OWtJTjd1TW5HTWtyRnl3TEw3Rm9uWlQ1QSIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
-      "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YViU_EI4k4ifHRiD6Mz5tz6oE6bQQ8S-0Be8NeWl1zZ7UalFAAAAAAAAAAAAAAAAAAAAAAAAAAAAEMsVTMUGl3wFpGIutMLvllKlAQIDJiABIVggQJG9RCPTKMIoSAIdvagPFFwy0luK8gsCbW7eKmhSTm8iWCCg15UkF5Y4ByyoYh4w5IgkXUQDkrm_Ylr43cBgVd04DA",
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiMmpXWGtrdU1QdG9wOGZjMjZLX3k3ZWZob2MzMUhXSExMWThvVWRvTEduayIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
+      "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YViU_EI4k4ifHRiD6Mz5tz6oE6bQQ8S-0Be8NeWl1zZ7UalFAAAAAAAAAAAAAAAAAAAAAAAAAAAAEP0detkLdSIv3Bv-E9fkfsGlAQIDJiABIVggt0cjowQ1MiQDRqiumjSYv8Bful-fpC33i-PoQ6a9GjQiWCBHCL7JeT1WXVi1WK0nb0Afv02qLpK69PW_awfyeDsrPQ",
       "transports": [
         "internal"
       ]
@@ -248,18 +248,18 @@ Origin: https://mypage.plandosee-diary.workers.dev
 }
 ```
 
-응답 헤더: `Set-Cookie: __Host-sid=Y0dw…(가림)…I8; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=7200`
+응답 헤더: `Set-Cookie: __Host-sid=_lJQ…(가림)…dM; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=7200`
 
 응답 본문
 ```json
 {
   "verified": true,
   "storedCredential": {
-    "id": "yxVMxQaXfAWkYi60wu-WUg",
+    "id": "_R162Qt1Ii_cG_4T1-R-wQ",
     "name": "bob 노트북 (테스트 인증기)",
-    "createdAt": 1792499033765,
+    "createdAt": 1792511377561,
     "lastUsedAt": null,
-    "publicKey": "pQECAyYgASFYIECRvUQj0yjCKEgCHb2oDxRcMtJbivILAm1u3ipoUk5vIlggoNeVJBeWOAcsqGIeMOSIJF1EA5K5v2Ja-N3AYFXdOAw",
+    "publicKey": "pQECAyYgASFYILdHI6MENTIkA0aorpo0mL_AX7pfn6Qt94vj6EOmvRo0IlggRwi-yXk9Vl1YtVitJ29AH79Nqi6SuvT1v2sH8ng7Kz0",
     "publicKeyFormat": "COSE_Key (base64url) — 서명을 확인하는 데만 쓰는 공개키",
     "counter": 0,
     "transports": [
@@ -274,7 +274,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 - ✅ bob 등록 성공
-- ✅ 등록 질문이 요청마다 다름: yy68sJ0HyouPL28DTnOd80kxypO160Nbl6NbvCmVpr8 ≠ Fc9ltdzoRGChsVz4Xt9kIN7uMnGMkrFywLL7FonZT5A
+- ✅ 등록 질문이 요청마다 다름: pddWFYFGmFhCN7WNVsFI7KbszIdK_mBi48Vt7xwi2Xo ≠ 2jWXkkuMPtop8fc26K_y7efhoc31HWHLLY8oUdoLGnk
 
 ## 3. 등록을 중간에 취소
 
@@ -291,7 +291,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 요청 본문
 ```json
 {
-  "username": "cancel-97fip",
+  "username": "cancel-tvnj5",
   "passkeyName": "취소할 패스키"
 }
 ```
@@ -299,14 +299,14 @@ Origin: https://mypage.plandosee-diary.workers.dev
 응답 본문
 ```json
 {
-  "challenge": "HyDq4D1O_e_gAFNRLquYNGPAU5mosfd3aNy0ZqoS6-w",
+  "challenge": "nLnCqP0ImBGnrYfDlcppQg7-9oQDF_L8mJCCCnmuBHc",
   "rp": {
     "name": "류인수 소개 페이지",
     "id": "mypage.plandosee-diary.workers.dev"
   },
   "user": {
-    "id": "-xZIphXWDk_cQ7uVpFmUmXRdDBSxKC0zsFGgluFjMgk",
-    "name": "cancel-97fip",
+    "id": "0ptlZ6ZQWOV10xyE5LXQAy9fD0EgwJUFG6x0sbgxGu4",
+    "name": "cancel-tvnj5",
     "displayName": ""
   },
   "pubKeyCredParams": [
@@ -351,7 +351,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 요청 본문
 ```json
 {
-  "challenge": "HyDq4D1O_e_gAFNRLquYNGPAU5mosfd3aNy0ZqoS6-w"
+  "challenge": "nLnCqP0ImBGnrYfDlcppQg7-9oQDF_L8mJCCCnmuBHc"
 }
 ```
 
@@ -375,7 +375,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 요청 본문
 ```json
 {
-  "username": "cancel-97fip",
+  "username": "cancel-tvnj5",
   "passkeyName": "확인용"
 }
 ```
@@ -383,14 +383,14 @@ Origin: https://mypage.plandosee-diary.workers.dev
 응답 본문
 ```json
 {
-  "challenge": "xUZ3cRyFaXIuo5wd36HgQaJ5MhZfz29Q7QlJI77mNkE",
+  "challenge": "M5SYUls7zUajzZobETEr-TFCzp6BTrJwGZXH6VzlGI8",
   "rp": {
     "name": "류인수 소개 페이지",
     "id": "mypage.plandosee-diary.workers.dev"
   },
   "user": {
-    "id": "l4Kde8zwE5Dw_rhfE_N4N9_1g0v5qm8WdXjwhqQ4PjM",
-    "name": "cancel-97fip",
+    "id": "42zCowjwwpUwMMQeYCCarEHhgHygQB9bzKjoUFNv7nA",
+    "name": "cancel-tvnj5",
     "displayName": ""
   },
   "pubKeyCredParams": [
@@ -429,11 +429,11 @@ Origin: https://mypage.plandosee-diary.workers.dev
 관련 통과 기준: T08-C27, C28, C29, C30, C31
 
 
-**[alice-97fip]** `POST /api/logout` → **200**
+**[alice-tvnj5]** `POST /api/logout` → **200**
 
 ```http
 POST /api/logout
-Cookie: __Host-sid=aq87…(가림)…YM
+Cookie: __Host-sid=qGO6…(가림)…es
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
@@ -452,7 +452,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 
-**[alice-97fip]** `POST /api/login/options` → **200**
+**[alice-tvnj5]** `POST /api/login/options` → **200**
 
 ```http
 POST /api/login/options
@@ -468,14 +468,14 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "rpId": "mypage.plandosee-diary.workers.dev",
-  "challenge": "G0dmjA0HUX-v48SvMgXWgnTFQyilfXoIWDZd62qxEIw",
+  "challenge": "tUCkHQJU6zAhyLQib0lRsk0ltk3jr8YPN4S6StZ81MY",
   "timeout": 60000,
   "userVerification": "preferred"
 }
 ```
 
 
-**[alice-97fip]** `POST /api/login/verify` → **200**
+**[alice-tvnj5]** `POST /api/login/verify` → **200**
 
 ```http
 POST /api/login/verify
@@ -486,28 +486,28 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "response": {
-    "id": "-EFp4K7kaHQmqNbiHdSzyQ",
-    "rawId": "-EFp4K7kaHQmqNbiHdSzyQ",
+    "id": "f2DT-UyIGYo8rgafHBDrVw",
+    "rawId": "f2DT-UyIGYo8rgafHBDrVw",
     "type": "public-key",
     "response": {
-      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiRzBkbWpBMEhVWC12NDhTdk1nWFdnblRGUXlpbGZYb0lXRFpkNjJxeEVJdyIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoidFVDa0hRSlU2ekFoeUxRaWIwbFJzazBsdGszanI4WVBONFM2U3RaODFNWSIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
       "authenticatorData": "_EI4k4ifHRiD6Mz5tz6oE6bQQ8S-0Be8NeWl1zZ7UakFAAAAAQ",
-      "signature": "MEQCIDIFosYFDVS0AB86dj5zV55WFtG-v_AR4zW2BQVLPm4rAiB8x0WKVsxBF2NUoGSAAzAd8QfWs4_zzyvOOZ4DekuNRw",
-      "userHandle": "17Csr1AiJYJxstc1yzCXu3v7YjgSwhqlCgw2lau5TTQ"
+      "signature": "MEUCIQCGrqq5jKVqpykm5_eIsedumWTTjbxkY5E2NLIJbze_PQIgK_-nHLddV_2svN4Gd7H2yl4Cv-fodH4qb0Y3wRTBHLA",
+      "userHandle": "L_S6KrXuzTWJRtsPk3GRnSf0j64Dd8w7fFNppzq_tHk"
     },
     "clientExtensionResults": {}
   }
 }
 ```
 
-응답 헤더: `Set-Cookie: __Host-sid=63KW…(가림)…OA; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=7200`
+응답 헤더: `Set-Cookie: __Host-sid=g-Zg…(가림)…Ig; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=7200`
 
 응답 본문
 ```json
 {
   "verified": true,
   "user": {
-    "username": "alice-97fip"
+    "username": "alice-tvnj5"
   },
   "passkey": "alice 노트북 (테스트 인증기)"
 }
@@ -515,40 +515,40 @@ Origin: https://mypage.plandosee-diary.workers.dev
 
 - ✅ 올바른 서명 → 200, 세션 발급
 
-**[alice-97fip]** `GET /api/private` → **200**
+**[alice-tvnj5]** `GET /api/private` → **200**
 
 ```http
 GET /api/private
-Cookie: __Host-sid=63KW…(가림)…OA
+Cookie: __Host-sid=g-Zg…(가림)…Ig
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 응답 본문
 ```json
 {
-  "owner": "alice-97fip",
+  "owner": "alice-tvnj5",
   "count": 3,
   "items": [
     {
-      "id": 1,
+      "id": 11,
       "category": "프로젝트 메모",
       "title": "준비 중인 프로젝트 (예시)",
-      "body": "[alice-97fip] 스터디 일정을 알려주는 디스코드 봇. 다음 단계: 알림 시간 설정 기능 만들기.",
-      "created_at": 1792499033073
+      "body": "[alice-tvnj5] 스터디 일정을 알려주는 디스코드 봇. 다음 단계: 알림 시간 설정 기능 만들기.",
+      "created_at": 1792511376618
     },
     {
-      "id": 2,
+      "id": 12,
       "category": "지원 목록",
       "title": "지원하려는 곳 (예시)",
-      "body": "[alice-97fip] 가상의 회사 A — 보안 엔지니어 인턴(11월 마감) / 가상의 회사 B — 네트워크 운영(상시).",
-      "created_at": 1792499033074
+      "body": "[alice-tvnj5] 가상의 회사 A — 보안 엔지니어 인턴(11월 마감) / 가상의 회사 B — 네트워크 운영(상시).",
+      "created_at": 1792511376619
     },
     {
-      "id": 3,
+      "id": 13,
       "category": "회고",
       "title": "이번 주 회고 (예시)",
-      "body": "[alice-97fip] 패스키 과제를 하면서 공개키와 일회용 질문이 비밀번호 자리를 어떻게 대신하는지 정리했다.",
-      "created_at": 1792499033075
+      "body": "[alice-tvnj5] 패스키 과제를 하면서 공개키와 일회용 질문이 비밀번호 자리를 어떻게 대신하는지 정리했다.",
+      "created_at": 1792511376620
     }
   ]
 }
@@ -556,7 +556,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 
 - ✅ 로그인 뒤 GET /api/private → 200 (내 자료)
 
-**[alice-97fip]** `POST /api/login/options` → **200**
+**[alice-tvnj5]** `POST /api/login/options` → **200**
 
 ```http
 POST /api/login/options
@@ -572,7 +572,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "rpId": "mypage.plandosee-diary.workers.dev",
-  "challenge": "XaqzpPFFclv-txQp1EnD0Is2jrLHEcwU5PTlxJUOJTw",
+  "challenge": "U1rFJVNcD9V8GSLWBZfGfZqAXdsg-MedPbG3FaxST3Q",
   "timeout": 60000,
   "userVerification": "preferred"
 }
@@ -581,7 +581,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 서명의 마지막 바이트 하나를 바꿔서 보냅니다.
 
 
-**[alice-97fip]** `POST /api/login/verify` → **401**
+**[alice-tvnj5]** `POST /api/login/verify` → **401**
 
 ```http
 POST /api/login/verify
@@ -592,14 +592,14 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "response": {
-    "id": "-EFp4K7kaHQmqNbiHdSzyQ",
-    "rawId": "-EFp4K7kaHQmqNbiHdSzyQ",
+    "id": "f2DT-UyIGYo8rgafHBDrVw",
+    "rawId": "f2DT-UyIGYo8rgafHBDrVw",
     "type": "public-key",
     "response": {
-      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiWGFxenBQRkZjbHYtdHhRcDFFbkQwSXMyanJMSEVjd1U1UFRseEpVT0pUdyIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiVTFyRkpWTmNEOVY4R1NMV0JaZkdmWnFBWGRzZy1NZWRQYkczRmF4U1QzUSIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
       "authenticatorData": "_EI4k4ifHRiD6Mz5tz6oE6bQQ8S-0Be8NeWl1zZ7UakFAAAAAg",
-      "signature": "MEUCIQD_4QshkxuTDH3s7ZUtjmX_qWeMh1hZBub_l3aNXbhJ0AIgAdJh5GVSoyG_Tv1hf9-LPGGQaw5SG93CDvUf_cS6wsA",
-      "userHandle": "17Csr1AiJYJxstc1yzCXu3v7YjgSwhqlCgw2lau5TTQ"
+      "signature": "MEUCIDEFsCBCNVu_-OQPgpKUnJFrksyX0UH7Tftxpq0aBXTHAiEAkwOoKAP2-t357nxx6sk46F8-w9wkGZHXEpJQ0cHBdQw",
+      "userHandle": "L_S6KrXuzTWJRtsPk3GRnSf0j64Dd8w7fFNppzq_tHk"
     },
     "clientExtensionResults": {}
   }
@@ -615,11 +615,11 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 - ✅ 틀린 서명 → 401 signature_invalid
-- ✅ 로그인 질문이 요청마다 다름: G0dmjA0HUX-v48SvMgXWgnTFQyilfXoIWDZd62qxEIw ≠ XaqzpPFFclv-txQp1EnD0Is2jrLHEcwU5PTlxJUOJTw
+- ✅ 로그인 질문이 요청마다 다름: tUCkHQJU6zAhyLQib0lRsk0ltk3jr8YPN4S6StZ81MY ≠ U1rFJVNcD9V8GSLWBZfGfZqAXdsg-MedPbG3FaxST3Q
 성공했던 로그인 요청 본문을 한 글자도 바꾸지 않고 다시 보냅니다.
 
 
-**[alice-97fip]** `POST /api/login/verify` → **400**
+**[alice-tvnj5]** `POST /api/login/verify` → **400**
 
 ```http
 POST /api/login/verify
@@ -630,14 +630,14 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "response": {
-    "id": "-EFp4K7kaHQmqNbiHdSzyQ",
-    "rawId": "-EFp4K7kaHQmqNbiHdSzyQ",
+    "id": "f2DT-UyIGYo8rgafHBDrVw",
+    "rawId": "f2DT-UyIGYo8rgafHBDrVw",
     "type": "public-key",
     "response": {
-      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiRzBkbWpBMEhVWC12NDhTdk1nWFdnblRGUXlpbGZYb0lXRFpkNjJxeEVJdyIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoidFVDa0hRSlU2ekFoeUxRaWIwbFJzazBsdGszanI4WVBONFM2U3RaODFNWSIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
       "authenticatorData": "_EI4k4ifHRiD6Mz5tz6oE6bQQ8S-0Be8NeWl1zZ7UakFAAAAAQ",
-      "signature": "MEQCIDIFosYFDVS0AB86dj5zV55WFtG-v_AR4zW2BQVLPm4rAiB8x0WKVsxBF2NUoGSAAzAd8QfWs4_zzyvOOZ4DekuNRw",
-      "userHandle": "17Csr1AiJYJxstc1yzCXu3v7YjgSwhqlCgw2lau5TTQ"
+      "signature": "MEUCIQCGrqq5jKVqpykm5_eIsedumWTTjbxkY5E2NLIJbze_PQIgK_-nHLddV_2svN4Gd7H2yl4Cv-fodH4qb0Y3wRTBHLA",
+      "userHandle": "L_S6KrXuzTWJRtsPk3GRnSf0j64Dd8w7fFNppzq_tHk"
     },
     "clientExtensionResults": {}
   }
@@ -660,11 +660,11 @@ Origin: https://mypage.plandosee-diary.workers.dev
 
 - ✅ 로그아웃 전에는 같은 세션 값으로 200
 
-**[alice-97fip]** `POST /api/logout` → **200**
+**[alice-tvnj5]** `POST /api/logout` → **200**
 
 ```http
 POST /api/logout
-Cookie: __Host-sid=63KW…(가림)…OA
+Cookie: __Host-sid=g-Zg…(가림)…Ig
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
@@ -683,11 +683,11 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 
-**[alice-97fip]** `GET /api/private` → **401**
+**[alice-tvnj5]** `GET /api/private` → **401**
 
 ```http
 GET /api/private
-Cookie: __Host-sid=63KW…(가림)…OA
+Cookie: __Host-sid=g-Zg…(가림)…Ig
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
@@ -701,7 +701,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 
 - ✅ 로그아웃 뒤 같은 세션 값 → 401
 
-**[alice-97fip]** `POST /api/login/options` → **200**
+**[alice-tvnj5]** `POST /api/login/options` → **200**
 
 ```http
 POST /api/login/options
@@ -717,14 +717,14 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "rpId": "mypage.plandosee-diary.workers.dev",
-  "challenge": "Udb459QGZ8j35W5dCBgppk4twXttPsJMu1gTmxKyPDg",
+  "challenge": "tT06MDthyTUXmFC8qDZ0JPHpbt8cYkQASbvoqvhLpEo",
   "timeout": 60000,
   "userVerification": "preferred"
 }
 ```
 
 
-**[alice-97fip]** `POST /api/login/verify` → **200**
+**[alice-tvnj5]** `POST /api/login/verify` → **200**
 
 ```http
 POST /api/login/verify
@@ -735,28 +735,28 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "response": {
-    "id": "-EFp4K7kaHQmqNbiHdSzyQ",
-    "rawId": "-EFp4K7kaHQmqNbiHdSzyQ",
+    "id": "f2DT-UyIGYo8rgafHBDrVw",
+    "rawId": "f2DT-UyIGYo8rgafHBDrVw",
     "type": "public-key",
     "response": {
-      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiVWRiNDU5UUdaOGozNVc1ZENCZ3BwazR0d1h0dFBzSk11MWdUbXhLeVBEZyIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoidFQwNk1EdGh5VFVYbUZDOHFEWjBKUEhwYnQ4Y1lrUUFTYnZvcXZoTHBFbyIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
       "authenticatorData": "_EI4k4ifHRiD6Mz5tz6oE6bQQ8S-0Be8NeWl1zZ7UakFAAAAAw",
-      "signature": "MEYCIQCZjZIFfU8vfo5qgNtmJaicvAPQTuMyGCd6qJ-MKGVNhgIhAOX3hfPiYxUQlOfgKpawBcLC8zbB_3r8dVJJAVNbuSCB",
-      "userHandle": "17Csr1AiJYJxstc1yzCXu3v7YjgSwhqlCgw2lau5TTQ"
+      "signature": "MEYCIQDvaCnsp_z16YNk5VzKqParEgRR5aoBTkmpsOt7C0br8gIhAJMrN55JeqFQ5fNqZaatoP0BwRtt_-MCp4YYjIkEq1fl",
+      "userHandle": "L_S6KrXuzTWJRtsPk3GRnSf0j64Dd8w7fFNppzq_tHk"
     },
     "clientExtensionResults": {}
   }
 }
 ```
 
-응답 헤더: `Set-Cookie: __Host-sid=prEd…(가림)…6Q; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=7200`
+응답 헤더: `Set-Cookie: __Host-sid=IxUX…(가림)…bA; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=7200`
 
 응답 본문
 ```json
 {
   "verified": true,
   "user": {
-    "username": "alice-97fip"
+    "username": "alice-tvnj5"
   },
   "passkey": "alice 노트북 (테스트 인증기)"
 }
@@ -768,93 +768,93 @@ Origin: https://mypage.plandosee-diary.workers.dev
 관련 통과 기준: T08-C36, C37, C38, C39, C40
 
 
-**[bob-97fip]** `GET /api/private` → **200**
+**[bob-tvnj5]** `GET /api/private` → **200**
 
 ```http
 GET /api/private
-Cookie: __Host-sid=Y0dw…(가림)…I8
+Cookie: __Host-sid=_lJQ…(가림)…dM
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 응답 본문
 ```json
 {
-  "owner": "bob-97fip",
+  "owner": "bob-tvnj5",
   "count": 3,
   "items": [
     {
-      "id": 4,
+      "id": 14,
       "category": "프로젝트 메모",
       "title": "준비 중인 프로젝트 (예시)",
-      "body": "[bob-97fip] 스터디 일정을 알려주는 디스코드 봇. 다음 단계: 알림 시간 설정 기능 만들기.",
-      "created_at": 1792499033765
+      "body": "[bob-tvnj5] 스터디 일정을 알려주는 디스코드 봇. 다음 단계: 알림 시간 설정 기능 만들기.",
+      "created_at": 1792511377561
     },
     {
-      "id": 5,
+      "id": 15,
       "category": "지원 목록",
       "title": "지원하려는 곳 (예시)",
-      "body": "[bob-97fip] 가상의 회사 A — 보안 엔지니어 인턴(11월 마감) / 가상의 회사 B — 네트워크 운영(상시).",
-      "created_at": 1792499033766
+      "body": "[bob-tvnj5] 가상의 회사 A — 보안 엔지니어 인턴(11월 마감) / 가상의 회사 B — 네트워크 운영(상시).",
+      "created_at": 1792511377562
     },
     {
-      "id": 6,
+      "id": 16,
       "category": "회고",
       "title": "이번 주 회고 (예시)",
-      "body": "[bob-97fip] 패스키 과제를 하면서 공개키와 일회용 질문이 비밀번호 자리를 어떻게 대신하는지 정리했다.",
-      "created_at": 1792499033767
+      "body": "[bob-tvnj5] 패스키 과제를 하면서 공개키와 일회용 질문이 비밀번호 자리를 어떻게 대신하는지 정리했다.",
+      "created_at": 1792511377563
     }
   ]
 }
 ```
 
 
-**[alice-97fip]** `GET /api/private` → **200**
+**[alice-tvnj5]** `GET /api/private` → **200**
 
 ```http
 GET /api/private
-Cookie: __Host-sid=prEd…(가림)…6Q
+Cookie: __Host-sid=IxUX…(가림)…bA
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 응답 본문
 ```json
 {
-  "owner": "alice-97fip",
+  "owner": "alice-tvnj5",
   "count": 3,
   "items": [
     {
-      "id": 1,
+      "id": 11,
       "category": "프로젝트 메모",
       "title": "준비 중인 프로젝트 (예시)",
-      "body": "[alice-97fip] 스터디 일정을 알려주는 디스코드 봇. 다음 단계: 알림 시간 설정 기능 만들기.",
-      "created_at": 1792499033073
+      "body": "[alice-tvnj5] 스터디 일정을 알려주는 디스코드 봇. 다음 단계: 알림 시간 설정 기능 만들기.",
+      "created_at": 1792511376618
     },
     {
-      "id": 2,
+      "id": 12,
       "category": "지원 목록",
       "title": "지원하려는 곳 (예시)",
-      "body": "[alice-97fip] 가상의 회사 A — 보안 엔지니어 인턴(11월 마감) / 가상의 회사 B — 네트워크 운영(상시).",
-      "created_at": 1792499033074
+      "body": "[alice-tvnj5] 가상의 회사 A — 보안 엔지니어 인턴(11월 마감) / 가상의 회사 B — 네트워크 운영(상시).",
+      "created_at": 1792511376619
     },
     {
-      "id": 3,
+      "id": 13,
       "category": "회고",
       "title": "이번 주 회고 (예시)",
-      "body": "[alice-97fip] 패스키 과제를 하면서 공개키와 일회용 질문이 비밀번호 자리를 어떻게 대신하는지 정리했다.",
-      "created_at": 1792499033075
+      "body": "[alice-tvnj5] 패스키 과제를 하면서 공개키와 일회용 질문이 비밀번호 자리를 어떻게 대신하는지 정리했다.",
+      "created_at": 1792511376620
     }
   ]
 }
 ```
 
-거절 전 자료 건수: alice-97fip 3건, bob-97fip 3건
+거절 전 자료 건수: alice-tvnj5 3건, bob-tvnj5 3건
 
 
-**[alice-97fip]** `GET /api/users/bob-97fip/private` → **403**
+**[alice-tvnj5]** `GET /api/users/bob-tvnj5/private` → **403**
 
 ```http
-GET /api/users/bob-97fip/private
-Cookie: __Host-sid=prEd…(가림)…6Q
+GET /api/users/bob-tvnj5/private
+Cookie: __Host-sid=IxUX…(가림)…bA
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
@@ -866,13 +866,13 @@ Origin: https://mypage.plandosee-diary.workers.dev
 }
 ```
 
-- ✅ alice-97fip → bob-97fip 자료 요청 → 403
+- ✅ alice-tvnj5 → bob-tvnj5 자료 요청 → 403
 
-**[bob-97fip]** `GET /api/users/alice-97fip/private` → **403**
+**[bob-tvnj5]** `GET /api/users/alice-tvnj5/private` → **403**
 
 ```http
-GET /api/users/alice-97fip/private
-Cookie: __Host-sid=Y0dw…(가림)…I8
+GET /api/users/alice-tvnj5/private
+Cookie: __Host-sid=_lJQ…(가림)…dM
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
@@ -884,13 +884,13 @@ Origin: https://mypage.plandosee-diary.workers.dev
 }
 ```
 
-- ✅ bob-97fip → alice-97fip 자료 요청 → 403
+- ✅ bob-tvnj5 → alice-tvnj5 자료 요청 → 403
 
-**[alice-97fip]** `DELETE /api/private/4` → **404**
+**[alice-tvnj5]** `DELETE /api/private/14` → **404**
 
 ```http
-DELETE /api/private/4
-Cookie: __Host-sid=prEd…(가림)…6Q
+DELETE /api/private/14
+Cookie: __Host-sid=IxUX…(가림)…bA
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
@@ -902,42 +902,42 @@ Origin: https://mypage.plandosee-diary.workers.dev
 }
 ```
 
-- ✅ alice-97fip가 bob-97fip의 항목(id 4) 삭제 요청 → 404
+- ✅ alice-tvnj5가 bob-tvnj5의 항목(id 14) 삭제 요청 → 404
 
-**[alice-97fip]** `GET /api/private?user=bob-97fip` → **200**
+**[alice-tvnj5]** `GET /api/private?user=bob-tvnj5` → **200**
 
 ```http
-GET /api/private?user=bob-97fip
-Cookie: __Host-sid=prEd…(가림)…6Q
+GET /api/private?user=bob-tvnj5
+Cookie: __Host-sid=IxUX…(가림)…bA
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 응답 본문
 ```json
 {
-  "owner": "alice-97fip",
+  "owner": "alice-tvnj5",
   "count": 3,
   "items": [
     {
-      "id": 1,
+      "id": 11,
       "category": "프로젝트 메모",
       "title": "준비 중인 프로젝트 (예시)",
-      "body": "[alice-97fip] 스터디 일정을 알려주는 디스코드 봇. 다음 단계: 알림 시간 설정 기능 만들기.",
-      "created_at": 1792499033073
+      "body": "[alice-tvnj5] 스터디 일정을 알려주는 디스코드 봇. 다음 단계: 알림 시간 설정 기능 만들기.",
+      "created_at": 1792511376618
     },
     {
-      "id": 2,
+      "id": 12,
       "category": "지원 목록",
       "title": "지원하려는 곳 (예시)",
-      "body": "[alice-97fip] 가상의 회사 A — 보안 엔지니어 인턴(11월 마감) / 가상의 회사 B — 네트워크 운영(상시).",
-      "created_at": 1792499033074
+      "body": "[alice-tvnj5] 가상의 회사 A — 보안 엔지니어 인턴(11월 마감) / 가상의 회사 B — 네트워크 운영(상시).",
+      "created_at": 1792511376619
     },
     {
-      "id": 3,
+      "id": 13,
       "category": "회고",
       "title": "이번 주 회고 (예시)",
-      "body": "[alice-97fip] 패스키 과제를 하면서 공개키와 일회용 질문이 비밀번호 자리를 어떻게 대신하는지 정리했다.",
-      "created_at": 1792499033075
+      "body": "[alice-tvnj5] 패스키 과제를 하면서 공개키와 일회용 질문이 비밀번호 자리를 어떻게 대신하는지 정리했다.",
+      "created_at": 1792511376620
     }
   ]
 }
@@ -945,19 +945,19 @@ Origin: https://mypage.plandosee-diary.workers.dev
 
 - ✅ 주소에 ?user=다른계정 → 그래도 내 자료만 돌아옴
 
-**[alice-97fip]** `POST /api/private` → **201**
+**[alice-tvnj5]** `POST /api/private` → **201**
 
 ```http
 POST /api/private
-Cookie: __Host-sid=prEd…(가림)…6Q
+Cookie: __Host-sid=IxUX…(가림)…bA
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 요청 본문
 ```json
 {
-  "owner": "bob-97fip",
-  "user": "bob-97fip",
+  "owner": "bob-tvnj5",
+  "user": "bob-tvnj5",
   "category": "메모",
   "title": "본문에 다른 계정을 적어 보낸 항목",
   "body": "주인은 세션으로만 정해집니다."
@@ -967,36 +967,36 @@ Origin: https://mypage.plandosee-diary.workers.dev
 응답 본문
 ```json
 {
-  "owner": "alice-97fip",
+  "owner": "alice-tvnj5",
   "count": 4,
   "items": [
     {
-      "id": 1,
+      "id": 11,
       "category": "프로젝트 메모",
       "title": "준비 중인 프로젝트 (예시)",
-      "body": "[alice-97fip] 스터디 일정을 알려주는 디스코드 봇. 다음 단계: 알림 시간 설정 기능 만들기.",
-      "created_at": 1792499033073
+      "body": "[alice-tvnj5] 스터디 일정을 알려주는 디스코드 봇. 다음 단계: 알림 시간 설정 기능 만들기.",
+      "created_at": 1792511376618
     },
     {
-      "id": 2,
+      "id": 12,
       "category": "지원 목록",
       "title": "지원하려는 곳 (예시)",
-      "body": "[alice-97fip] 가상의 회사 A — 보안 엔지니어 인턴(11월 마감) / 가상의 회사 B — 네트워크 운영(상시).",
-      "created_at": 1792499033074
+      "body": "[alice-tvnj5] 가상의 회사 A — 보안 엔지니어 인턴(11월 마감) / 가상의 회사 B — 네트워크 운영(상시).",
+      "created_at": 1792511376619
     },
     {
-      "id": 3,
+      "id": 13,
       "category": "회고",
       "title": "이번 주 회고 (예시)",
-      "body": "[alice-97fip] 패스키 과제를 하면서 공개키와 일회용 질문이 비밀번호 자리를 어떻게 대신하는지 정리했다.",
-      "created_at": 1792499033075
+      "body": "[alice-tvnj5] 패스키 과제를 하면서 공개키와 일회용 질문이 비밀번호 자리를 어떻게 대신하는지 정리했다.",
+      "created_at": 1792511376620
     },
     {
-      "id": 7,
+      "id": 17,
       "category": "메모",
       "title": "본문에 다른 계정을 적어 보낸 항목",
       "body": "주인은 세션으로만 정해집니다.",
-      "created_at": 1792499038698
+      "created_at": 1792511383453
     }
   ]
 }
@@ -1004,58 +1004,58 @@ Origin: https://mypage.plandosee-diary.workers.dev
 
 - ✅ 요청 본문에 owner/user=다른계정 → 내 자료에 저장되고 내 자료만 돌아옴
 
-**[bob-97fip]** `GET /api/private` → **200**
+**[bob-tvnj5]** `GET /api/private` → **200**
 
 ```http
 GET /api/private
-Cookie: __Host-sid=Y0dw…(가림)…I8
+Cookie: __Host-sid=_lJQ…(가림)…dM
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 응답 본문
 ```json
 {
-  "owner": "bob-97fip",
+  "owner": "bob-tvnj5",
   "count": 3,
   "items": [
     {
-      "id": 4,
+      "id": 14,
       "category": "프로젝트 메모",
       "title": "준비 중인 프로젝트 (예시)",
-      "body": "[bob-97fip] 스터디 일정을 알려주는 디스코드 봇. 다음 단계: 알림 시간 설정 기능 만들기.",
-      "created_at": 1792499033765
+      "body": "[bob-tvnj5] 스터디 일정을 알려주는 디스코드 봇. 다음 단계: 알림 시간 설정 기능 만들기.",
+      "created_at": 1792511377561
     },
     {
-      "id": 5,
+      "id": 15,
       "category": "지원 목록",
       "title": "지원하려는 곳 (예시)",
-      "body": "[bob-97fip] 가상의 회사 A — 보안 엔지니어 인턴(11월 마감) / 가상의 회사 B — 네트워크 운영(상시).",
-      "created_at": 1792499033766
+      "body": "[bob-tvnj5] 가상의 회사 A — 보안 엔지니어 인턴(11월 마감) / 가상의 회사 B — 네트워크 운영(상시).",
+      "created_at": 1792511377562
     },
     {
-      "id": 6,
+      "id": 16,
       "category": "회고",
       "title": "이번 주 회고 (예시)",
-      "body": "[bob-97fip] 패스키 과제를 하면서 공개키와 일회용 질문이 비밀번호 자리를 어떻게 대신하는지 정리했다.",
-      "created_at": 1792499033767
+      "body": "[bob-tvnj5] 패스키 과제를 하면서 공개키와 일회용 질문이 비밀번호 자리를 어떻게 대신하는지 정리했다.",
+      "created_at": 1792511377563
     }
   ]
 }
 ```
 
-- ✅ 거절 뒤 bob-97fip 자료 건수 그대로: 3 → 3
-- ✅ bob-97fip의 응답에 alice-97fip 자료가 섞이지 않음
+- ✅ 거절 뒤 bob-tvnj5 자료 건수 그대로: 3 → 3
+- ✅ bob-tvnj5의 응답에 alice-tvnj5 자료가 섞이지 않음
 
 ## 7. 패스키 두 개 등록 · 하나 지운 뒤 로그인
 
 관련 통과 기준: T08-C42, C43, C44, C45, C46
 
 
-**[alice-97fip]** `POST /api/register/options` → **200**
+**[alice-tvnj5]** `POST /api/register/options` → **200**
 
 ```http
 POST /api/register/options
-Cookie: __Host-sid=prEd…(가림)…6Q
+Cookie: __Host-sid=IxUX…(가림)…bA
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
@@ -1069,14 +1069,14 @@ Origin: https://mypage.plandosee-diary.workers.dev
 응답 본문
 ```json
 {
-  "challenge": "S771EuPq0heTzk0xA34uYLOez9JJgEaTsPnlN9-YPjo",
+  "challenge": "tUpAGHzssuFfloCzZoemvRcQ-nELGy-AByTleF7sQ0w",
   "rp": {
     "name": "류인수 소개 페이지",
     "id": "mypage.plandosee-diary.workers.dev"
   },
   "user": {
-    "id": "17Csr1AiJYJxstc1yzCXu3v7YjgSwhqlCgw2lau5TTQ",
-    "name": "alice-97fip",
+    "id": "L_S6KrXuzTWJRtsPk3GRnSf0j64Dd8w7fFNppzq_tHk",
+    "name": "alice-tvnj5",
     "displayName": ""
   },
   "pubKeyCredParams": [
@@ -1097,7 +1097,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
   "attestation": "none",
   "excludeCredentials": [
     {
-      "id": "-EFp4K7kaHQmqNbiHdSzyQ",
+      "id": "f2DT-UyIGYo8rgafHBDrVw",
       "transports": [
         "internal"
       ],
@@ -1117,11 +1117,11 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 
-**[alice-97fip]** `POST /api/register/verify` → **200**
+**[alice-tvnj5]** `POST /api/register/verify` → **200**
 
 ```http
 POST /api/register/verify
-Cookie: __Host-sid=prEd…(가림)…6Q
+Cookie: __Host-sid=IxUX…(가림)…bA
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
@@ -1129,12 +1129,12 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "response": {
-    "id": "jEtYOioYHRGzDFzd79P0ZQ",
-    "rawId": "jEtYOioYHRGzDFzd79P0ZQ",
+    "id": "z3ybz-rHPhiUWdg1NU9Puw",
+    "rawId": "z3ybz-rHPhiUWdg1NU9Puw",
     "type": "public-key",
     "response": {
-      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiUzc3MUV1UHEwaGVUemsweEEzNHVZTE9lejlKSmdFYVRzUG5sTjktWVBqbyIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
-      "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YViU_EI4k4ifHRiD6Mz5tz6oE6bQQ8S-0Be8NeWl1zZ7UalFAAAAAAAAAAAAAAAAAAAAAAAAAAAAEIxLWDoqGB0Rswxc3e_T9GWlAQIDJiABIVggwRsQaxxcZ_teVJe9YWJIWgaxSrEuMuP8LYir6lYc9hUiWCChEWxiJWwqqyXdKQwR1ONlPwac6BbD0vVjfP3sL6LwbA",
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoidFVwQUdIenNzdUZmbG9DelpvZW12UmNRLW5FTEd5LUFCeVRsZUY3c1EwdyIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
+      "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YViU_EI4k4ifHRiD6Mz5tz6oE6bQQ8S-0Be8NeWl1zZ7UalFAAAAAAAAAAAAAAAAAAAAAAAAAAAAEM98m8_qxz4YlFnYNTVPT7ulAQIDJiABIVggQo3xRRLgnbDUqwXbxUfWiQanWf9u6m5dDYyUdlDUboYiWCBLjoSCm7lU0X1Wk9vOP8dDCudyuIwKeN_ulFQ3rx49Jg",
       "transports": [
         "internal"
       ]
@@ -1150,11 +1150,11 @@ Origin: https://mypage.plandosee-diary.workers.dev
 {
   "verified": true,
   "storedCredential": {
-    "id": "jEtYOioYHRGzDFzd79P0ZQ",
+    "id": "z3ybz-rHPhiUWdg1NU9Puw",
     "name": "alice 휴대폰 (테스트 인증기)",
-    "createdAt": 1792499039615,
+    "createdAt": 1792511384740,
     "lastUsedAt": null,
-    "publicKey": "pQECAyYgASFYIMEbEGscXGf7XlSXvWFiSFoGsUqxLjLj_C2Iq-pWHPYVIlggoRFsYiVsKqsl3SkMEdTjZT8GnOgWw9L1Y3z97C-i8Gw",
+    "publicKey": "pQECAyYgASFYIEKN8UUS4J2w1KsF28VH1okGp1n_bupuXQ2MlHZQ1G6GIlggS46Egpu5VNF9VpPbzj_HQwrncriMCnjf7pRUN68ePSY",
     "publicKeyFormat": "COSE_Key (base64url) — 서명을 확인하는 데만 쓰는 공개키",
     "counter": 0,
     "transports": [
@@ -1170,26 +1170,26 @@ Origin: https://mypage.plandosee-diary.workers.dev
 
 - ✅ 로그인한 상태에서 두 번째 패스키 등록
 
-**[alice-97fip]** `GET /api/credentials` → **200**
+**[alice-tvnj5]** `GET /api/credentials` → **200**
 
 ```http
 GET /api/credentials
-Cookie: __Host-sid=prEd…(가림)…6Q
+Cookie: __Host-sid=IxUX…(가림)…bA
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 응답 본문
 ```json
 {
-  "owner": "alice-97fip",
+  "owner": "alice-tvnj5",
   "count": 2,
   "credentials": [
     {
-      "id": "-EFp4K7kaHQmqNbiHdSzyQ",
+      "id": "f2DT-UyIGYo8rgafHBDrVw",
       "name": "alice 노트북 (테스트 인증기)",
-      "createdAt": 1792499033073,
-      "lastUsedAt": 1792499037543,
-      "publicKey": "pQECAyYgASFYIKNRqM4OqnOs…",
+      "createdAt": 1792511376618,
+      "lastUsedAt": 1792511381850,
+      "publicKey": "pQECAyYgASFYIFru_1jRYGYk…",
       "publicKeyFormat": "COSE_Key (base64url) — 서명을 확인하는 데만 쓰는 공개키",
       "counter": 3,
       "transports": [
@@ -1201,11 +1201,11 @@ Origin: https://mypage.plandosee-diary.workers.dev
       "storedIn": "알 수 없음(보안 키 또는 정보 비공개)"
     },
     {
-      "id": "jEtYOioYHRGzDFzd79P0ZQ",
+      "id": "z3ybz-rHPhiUWdg1NU9Puw",
       "name": "alice 휴대폰 (테스트 인증기)",
-      "createdAt": 1792499039615,
+      "createdAt": 1792511384740,
       "lastUsedAt": null,
-      "publicKey": "pQECAyYgASFYIMEbEGscXGf7…",
+      "publicKey": "pQECAyYgASFYIEKN8UUS4J2w…",
       "publicKeyFormat": "COSE_Key (base64url) — 서명을 확인하는 데만 쓰는 공개키",
       "counter": 0,
       "transports": [
@@ -1222,26 +1222,110 @@ Origin: https://mypage.plandosee-diary.workers.dev
 
 - ✅ 목록에 패스키 2개, 각각 이름과 등록 날짜가 있음
 
-**[alice-97fip]** `DELETE /api/credentials/-EFp4K7kaHQmqNbiHdSzyQ` → **200**
+**[alice-tvnj5]** `PATCH /api/credentials/z3ybz-rHPhiUWdg1NU9Puw` → **200**
 
 ```http
-DELETE /api/credentials/-EFp4K7kaHQmqNbiHdSzyQ
-Cookie: __Host-sid=prEd…(가림)…6Q
+PATCH /api/credentials/z3ybz-rHPhiUWdg1NU9Puw
+Cookie: __Host-sid=IxUX…(가림)…bA
+Origin: https://mypage.plandosee-diary.workers.dev
+```
+
+요청 본문
+```json
+{
+  "name": "alice 휴대폰 (이름 바꿈)"
+}
+```
+
+응답 본문
+```json
+{
+  "owner": "alice-tvnj5",
+  "count": 2,
+  "credentials": [
+    {
+      "id": "f2DT-UyIGYo8rgafHBDrVw",
+      "name": "alice 노트북 (테스트 인증기)",
+      "createdAt": 1792511376618,
+      "lastUsedAt": 1792511381850,
+      "publicKey": "pQECAyYgASFYIFru_1jRYGYk…",
+      "publicKeyFormat": "COSE_Key (base64url) — 서명을 확인하는 데만 쓰는 공개키",
+      "counter": 3,
+      "transports": [
+        "internal"
+      ],
+      "deviceType": "singleDevice",
+      "backedUp": false,
+      "aaguid": "00000000-0000-0000-0000-000000000000",
+      "storedIn": "알 수 없음(보안 키 또는 정보 비공개)"
+    },
+    {
+      "id": "z3ybz-rHPhiUWdg1NU9Puw",
+      "name": "alice 휴대폰 (이름 바꿈)",
+      "createdAt": 1792511384740,
+      "lastUsedAt": null,
+      "publicKey": "pQECAyYgASFYIEKN8UUS4J2w…",
+      "publicKeyFormat": "COSE_Key (base64url) — 서명을 확인하는 데만 쓰는 공개키",
+      "counter": 0,
+      "transports": [
+        "internal"
+      ],
+      "deviceType": "singleDevice",
+      "backedUp": false,
+      "aaguid": "00000000-0000-0000-0000-000000000000",
+      "storedIn": "알 수 없음(보안 키 또는 정보 비공개)"
+    }
+  ]
+}
+```
+
+- ✅ 내 패스키 이름 바꾸기 → 200
+
+**[bob-tvnj5]** `PATCH /api/credentials/z3ybz-rHPhiUWdg1NU9Puw` → **404**
+
+```http
+PATCH /api/credentials/z3ybz-rHPhiUWdg1NU9Puw
+Cookie: __Host-sid=_lJQ…(가림)…dM
+Origin: https://mypage.plandosee-diary.workers.dev
+```
+
+요청 본문
+```json
+{
+  "name": "남이 바꾼 이름"
+}
+```
+
+응답 본문
+```json
+{
+  "error": "not_found",
+  "message": "내 패스키 중에 그런 것이 없습니다."
+}
+```
+
+- ✅ bob-tvnj5가 alice-tvnj5의 패스키 이름 바꾸기 → 404
+
+**[alice-tvnj5]** `DELETE /api/credentials/f2DT-UyIGYo8rgafHBDrVw` → **200**
+
+```http
+DELETE /api/credentials/f2DT-UyIGYo8rgafHBDrVw
+Cookie: __Host-sid=IxUX…(가림)…bA
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 응답 본문
 ```json
 {
-  "owner": "alice-97fip",
+  "owner": "alice-tvnj5",
   "count": 1,
   "credentials": [
     {
-      "id": "jEtYOioYHRGzDFzd79P0ZQ",
-      "name": "alice 휴대폰 (테스트 인증기)",
-      "createdAt": 1792499039615,
+      "id": "z3ybz-rHPhiUWdg1NU9Puw",
+      "name": "alice 휴대폰 (이름 바꿈)",
+      "createdAt": 1792511384740,
       "lastUsedAt": null,
-      "publicKey": "pQECAyYgASFYIMEbEGscXGf7…",
+      "publicKey": "pQECAyYgASFYIEKN8UUS4J2w…",
       "publicKeyFormat": "COSE_Key (base64url) — 서명을 확인하는 데만 쓰는 공개키",
       "counter": 0,
       "transports": [
@@ -1258,11 +1342,11 @@ Origin: https://mypage.plandosee-diary.workers.dev
 
 - ✅ 첫 번째 패스키 삭제 → 1개 남음
 
-**[alice-97fip]** `POST /api/logout` → **200**
+**[alice-tvnj5]** `POST /api/logout` → **200**
 
 ```http
 POST /api/logout
-Cookie: __Host-sid=prEd…(가림)…6Q
+Cookie: __Host-sid=IxUX…(가림)…bA
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
@@ -1281,7 +1365,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
 
-**[alice-97fip]** `POST /api/login/options` → **200**
+**[alice-tvnj5]** `POST /api/login/options` → **200**
 
 ```http
 POST /api/login/options
@@ -1297,14 +1381,14 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "rpId": "mypage.plandosee-diary.workers.dev",
-  "challenge": "j2ENJuoGJZb5LSuvrJWVfND-Pf88Rm7pErBLsleJtDc",
+  "challenge": "9uTLGtrjQqm9lZIL9ayjM8r4uOfG4GZjKDMb6lqowXk",
   "timeout": 60000,
   "userVerification": "preferred"
 }
 ```
 
 
-**[alice-97fip]** `POST /api/login/verify` → **200**
+**[alice-tvnj5]** `POST /api/login/verify` → **200**
 
 ```http
 POST /api/login/verify
@@ -1315,30 +1399,30 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "response": {
-    "id": "jEtYOioYHRGzDFzd79P0ZQ",
-    "rawId": "jEtYOioYHRGzDFzd79P0ZQ",
+    "id": "z3ybz-rHPhiUWdg1NU9Puw",
+    "rawId": "z3ybz-rHPhiUWdg1NU9Puw",
     "type": "public-key",
     "response": {
-      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiajJFTkp1b0dKWmI1TFN1dnJKV1ZmTkQtUGY4OFJtN3BFckJMc2xlSnREYyIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiOXVUTEd0cmpRcW05bFpJTDlheWpNOHI0dU9mRzRHWmpLRE1iNmxxb3dYayIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
       "authenticatorData": "_EI4k4ifHRiD6Mz5tz6oE6bQQ8S-0Be8NeWl1zZ7UakFAAAAAQ",
-      "signature": "MEUCIGgsnAqzfvldqHBOmfZE5kOUgVziSni2oYOhu6YARrR3AiEAmaJ0IvgwHnyRI3twMMQ6KqdboIxQo_FSDwbUk_V9G7k",
-      "userHandle": "17Csr1AiJYJxstc1yzCXu3v7YjgSwhqlCgw2lau5TTQ"
+      "signature": "MEUCIHpWSCLaSPZZUxGj9Zo2XGJJfOwQMI16nQrk6Uu59L-GAiEAiE6Y-zfjXU5l2XX8ITnNxdXWjtSIhZ2mddLZ6XyFtFc",
+      "userHandle": "L_S6KrXuzTWJRtsPk3GRnSf0j64Dd8w7fFNppzq_tHk"
     },
     "clientExtensionResults": {}
   }
 }
 ```
 
-응답 헤더: `Set-Cookie: __Host-sid=c7NV…(가림)…6s; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=7200`
+응답 헤더: `Set-Cookie: __Host-sid=JMh0…(가림)…b0; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=7200`
 
 응답 본문
 ```json
 {
   "verified": true,
   "user": {
-    "username": "alice-97fip"
+    "username": "alice-tvnj5"
   },
-  "passkey": "alice 휴대폰 (테스트 인증기)"
+  "passkey": "alice 휴대폰 (이름 바꿈)"
 }
 ```
 
@@ -1360,7 +1444,7 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "rpId": "mypage.plandosee-diary.workers.dev",
-  "challenge": "JneAuLJUoRtprh3OwQFkGuZfbDOi6uOUbXzt6eJouN4",
+  "challenge": "4SeV9yMwYGgjnnJFlvkWsZPXurZ9lY3tWWWE03ZGHbM",
   "timeout": 60000,
   "userVerification": "preferred"
 }
@@ -1378,14 +1462,14 @@ Origin: https://mypage.plandosee-diary.workers.dev
 ```json
 {
   "response": {
-    "id": "-EFp4K7kaHQmqNbiHdSzyQ",
-    "rawId": "-EFp4K7kaHQmqNbiHdSzyQ",
+    "id": "f2DT-UyIGYo8rgafHBDrVw",
+    "rawId": "f2DT-UyIGYo8rgafHBDrVw",
     "type": "public-key",
     "response": {
-      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiSm5lQXVMSlVvUnRwcmgzT3dRRmtHdVpmYkRPaTZ1T1ViWHp0NmVKb3VONCIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiNFNlVjl5TXdZR2dqbm5KRmx2a1dzWlBYdXJaOWxZM3RXV1dFMDNaR0hiTSIsIm9yaWdpbiI6Imh0dHBzOi8vbXlwYWdlLnBsYW5kb3NlZS1kaWFyeS53b3JrZXJzLmRldiIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
       "authenticatorData": "_EI4k4ifHRiD6Mz5tz6oE6bQQ8S-0Be8NeWl1zZ7UakFAAAABA",
-      "signature": "MEUCIEOVjJ-5YyRAMZhabmfArKujlRkGOsRStdSF6Cg23DHLAiEA9RHve4R_w1ULiJVc1oO36-S-SeGz2Tqw-5_kfIMgdK0",
-      "userHandle": "17Csr1AiJYJxstc1yzCXu3v7YjgSwhqlCgw2lau5TTQ"
+      "signature": "MEUCIH0OGnLj9PcTNOpJTOqA1uH-z23HUdUzc2lluPoCcM4fAiEAy2nylaMGOpHX5JDesmA2W6mGthF6cXA50xkpGAfRpH8",
+      "userHandle": "L_S6KrXuzTWJRtsPk3GRnSf0j64Dd8w7fFNppzq_tHk"
     },
     "clientExtensionResults": {}
   }
@@ -1402,11 +1486,11 @@ Origin: https://mypage.plandosee-diary.workers.dev
 
 - ✅ 지운 패스키로 로그인 → 401 unknown_credential
 
-**[alice-97fip]** `DELETE /api/credentials/jEtYOioYHRGzDFzd79P0ZQ` → **409**
+**[alice-tvnj5]** `DELETE /api/credentials/z3ybz-rHPhiUWdg1NU9Puw` → **409**
 
 ```http
-DELETE /api/credentials/jEtYOioYHRGzDFzd79P0ZQ
-Cookie: __Host-sid=c7NV…(가림)…6s
+DELETE /api/credentials/z3ybz-rHPhiUWdg1NU9Puw
+Cookie: __Host-sid=JMh0…(가림)…b0
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
@@ -1420,11 +1504,11 @@ Origin: https://mypage.plandosee-diary.workers.dev
 
 - ✅ 마지막 남은 패스키 삭제 → 409 (계정이 잠기는 것을 막음)
 
-**[bob-97fip]** `DELETE /api/credentials/jEtYOioYHRGzDFzd79P0ZQ` → **404**
+**[bob-tvnj5]** `DELETE /api/credentials/z3ybz-rHPhiUWdg1NU9Puw` → **404**
 
 ```http
-DELETE /api/credentials/jEtYOioYHRGzDFzd79P0ZQ
-Cookie: __Host-sid=Y0dw…(가림)…I8
+DELETE /api/credentials/z3ybz-rHPhiUWdg1NU9Puw
+Cookie: __Host-sid=_lJQ…(가림)…dM
 Origin: https://mypage.plandosee-diary.workers.dev
 ```
 
@@ -1436,18 +1520,18 @@ Origin: https://mypage.plandosee-diary.workers.dev
 }
 ```
 
-- ✅ bob-97fip가 alice-97fip의 패스키 삭제 요청 → 404
+- ✅ bob-tvnj5가 alice-tvnj5의 패스키 삭제 요청 → 404
 
 ## 8. 다른 출처에서 온 요청
 
 관련 통과 기준: CSRF 방어(추가 확인)
 
 
-**[alice-97fip]** `POST /api/private` → **403**
+**[alice-tvnj5]** `POST /api/private` → **403**
 
 ```http
 POST /api/private
-Cookie: __Host-sid=c7NV…(가림)…6s
+Cookie: __Host-sid=JMh0…(가림)…b0
 Origin: https://evil.example
 ```
 
