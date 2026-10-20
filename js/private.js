@@ -20,15 +20,28 @@ document.addEventListener("DOMContentLoaded", () => {
     ms ? new Date(ms).toLocaleString("ko-KR", { dateStyle: "medium", timeStyle: "short" }) : "—";
 
   // ───────── 요청 기록 ─────────
+  // 탭을 닫기 전까지는 새로고침해도 기록이 남도록 sessionStorage에 둡니다.
+  // 세션 값은 HttpOnly 쿠키에만 있어서 이 기록에는 들어가지 않습니다.
+  const LOG_KEY = "mypage-request-log";
+  const LOG_MAX = 200;
 
-  function addLog(method, path, reqBody, status, resBody) {
-    const entry = { at: new Date().toISOString(), method, path, reqBody, status, resBody };
-    logEntries.push(entry);
+  function saveLog() {
+    try {
+      sessionStorage.setItem(LOG_KEY, JSON.stringify(logEntries));
+    } catch {}
+  }
+
+  function renderLogEntry(entry) {
+    const { method, path, reqBody, status, resBody } = entry;
     const li = document.createElement("li");
     li.className = status >= 400 ? "log-fail" : "log-ok";
     const head = document.createElement("p");
     head.className = "log-line";
     head.textContent = `${method} ${path} → ${status}`;
+    const time = document.createElement("span");
+    time.className = "log-time";
+    time.textContent = new Date(entry.at).toLocaleTimeString("ko-KR");
+    head.append(" ", time);
     li.append(head);
     for (const [label, data] of [["요청 본문", reqBody], ["응답 본문", resBody]]) {
       if (data === undefined) continue;
@@ -43,9 +56,26 @@ document.addEventListener("DOMContentLoaded", () => {
     logEl.prepend(li);
   }
 
+  function addLog(method, path, reqBody, status, resBody) {
+    const entry = { at: new Date().toISOString(), method, path, reqBody, status, resBody };
+    logEntries.push(entry);
+    if (logEntries.length > LOG_MAX) logEntries.splice(0, logEntries.length - LOG_MAX);
+    saveLog();
+    renderLogEntry(entry);
+  }
+
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(LOG_KEY) ?? "[]");
+    if (Array.isArray(saved)) {
+      logEntries.push(...saved);
+      saved.forEach(renderLogEntry);
+    }
+  } catch {}
+
   $("log-clear").addEventListener("click", () => {
     logEntries.length = 0;
     logEl.textContent = "";
+    saveLog();
   });
 
   $("log-copy").addEventListener("click", async () => {
@@ -156,6 +186,21 @@ document.addEventListener("DOMContentLoaded", () => {
         tr.append(td);
       }
       const td = document.createElement("td");
+      td.className = "passkey-actions";
+      const rename = document.createElement("button");
+      rename.type = "button";
+      rename.className = "link-btn";
+      rename.textContent = "이름 바꾸기";
+      rename.addEventListener("click", async () => {
+        const name = prompt("새 패스키 이름 (1~40자)", c.name);
+        if (name === null || name.trim() === c.name) return;
+        try {
+          renderPasskeys(await api("PATCH", `api/credentials/${c.id}`, { name: name.trim() }));
+          setStatus(`패스키 이름을 "${name.trim()}"(으)로 바꿨습니다.`);
+        } catch (e) {
+          setStatus(e.message, "error");
+        }
+      });
       const del = document.createElement("button");
       del.type = "button";
       del.className = "link-btn";
@@ -171,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
           setStatus(e.message, "error");
         }
       });
-      td.append(del);
+      td.append(rename, del);
       tr.append(td);
       tbody.append(tr);
     }

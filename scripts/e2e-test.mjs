@@ -301,6 +301,11 @@ const add = await alice.register(aliceDevice2, null, "alice 휴대폰 (테스트
 check(add.ver.status === 200, "로그인한 상태에서 두 번째 패스키 등록");
 const list = await alice.call("GET", "/api/credentials");
 check(list.data.count === 2 && list.data.credentials.every((c) => c.name && c.createdAt), "목록에 패스키 2개, 각각 이름과 등록 날짜가 있음");
+const secondId = aliceDevice2.credentials[0].id;
+const renamed = await alice.call("PATCH", `/api/credentials/${secondId}`, { name: "alice 휴대폰 (이름 바꿈)" });
+check(renamed.status === 200 && renamed.data.credentials.some((c) => c.name === "alice 휴대폰 (이름 바꿈)"), "내 패스키 이름 바꾸기 → 200");
+const bobRename = await bob.call("PATCH", `/api/credentials/${secondId}`, { name: "남이 바꾼 이름" });
+check(bobRename.status === 404, `${bob.name}가 ${alice.name}의 패스키 이름 바꾸기 → 404`);
 const firstId = aliceDevice1.credentials[0].id;
 const del = await alice.call("DELETE", `/api/credentials/${firstId}`);
 check(del.status === 200 && del.data.count === 1, "첫 번째 패스키 삭제 → 1개 남음");

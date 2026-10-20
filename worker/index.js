@@ -81,6 +81,7 @@ async function handleApi(request, env, url) {
   if ((m = path.match(/^\/api\/private\/(\d+)$/)) && method === "DELETE") return deletePrivate(ctx, Number(m[1]));
   if ((m = path.match(/^\/api\/users\/([^/]+)\/private$/)) && method === "GET") return readUserPrivate(ctx, decodeURIComponent(m[1]));
   if ((m = path.match(/^\/api\/credentials\/([A-Za-z0-9_-]+)$/)) && method === "DELETE") return deleteCredential(ctx, m[1]);
+  if ((m = path.match(/^\/api\/credentials\/([A-Za-z0-9_-]+)$/)) && method === "PATCH") return renameCredential(ctx, m[1]);
 
   throw new HttpError(404, "not_found", "없는 주소입니다.");
 }
@@ -428,6 +429,22 @@ async function deleteCredential(ctx, id) {
     throw new HttpError(409, "last_passkey", "마지막 남은 패스키는 지울 수 없습니다. 다른 패스키를 먼저 등록하세요.");
   }
   await env.DB.prepare("DELETE FROM credentials WHERE id = ? AND user_id = ?").bind(id, user.id).run();
+  return listCredentials(ctx);
+}
+
+async function renameCredential(ctx, id) {
+  const user = await requireUser(ctx);
+  const body = await readJson(ctx.request);
+  const name = String(body.name ?? "").trim();
+  if (name.length < 1 || name.length > 40) {
+    throw new HttpError(400, "bad_passkey_name", "패스키 이름을 1~40자로 적어주세요.");
+  }
+  // 이름도 내 패스키만 바꿀 수 있습니다.
+  const res = await ctx.env.DB.prepare("UPDATE credentials SET name = ? WHERE id = ? AND user_id = ?")
+    .bind(name, id, user.id).run();
+  if (res.meta.changes === 0) {
+    throw new HttpError(404, "not_found", "내 패스키 중에 그런 것이 없습니다.");
+  }
   return listCredentials(ctx);
 }
 

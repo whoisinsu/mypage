@@ -1156,6 +1156,17 @@ button.btn {
   white-space: nowrap;
 }
 
+.passkey-actions {
+  display: flex;
+  gap: 14px;
+}
+
+.log-time {
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-left: 6px;
+}
+
 .log-head {
   display: flex;
   justify-content: space-between;
