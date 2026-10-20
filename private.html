@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>비공개 영역 — 류인수</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,800;1,400&family=Archivo+Black&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<!--
+  이 파일에는 비공개 내용이 들어 있지 않습니다.
+  비공개 항목은 패스키로 로그인한 뒤에만 /api/private 가 JSON으로 내려 줍니다.
+-->
+<body class="private-page">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-name">류인수</span>
+        <span class="brand-en"><i>INSU RYU</i></span>
+      </div>
+      <nav aria-label="페이지 이동">
+        <a href="./">← 공개 소개 페이지</a>
+      </nav>
+      <span class="private-badge">🔒 PRIVATE</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="private-boundary" role="note">
+      <strong>여기서부터는 비공개 영역입니다.</strong>
+      패스키로 들어간 사람만 볼 수 있습니다. 비밀번호는 쓰지 않습니다.
+      이 영역의 내용은 모두 과제를 위해 만들어 넣은 예시이며, 실제 개인정보가 아닙니다.
+    </div>
+
+    <p id="status" class="private-status" role="status" aria-live="polite"></p>
+
+    <!-- 로그인하지 않았을 때 -->
+    <section id="signed-out" class="private-section" hidden aria-labelledby="signin-title">
+      <div class="private-card">
+        <h2 id="signin-title">패스키로 들어가기</h2>
+        <p class="private-help">기기에 저장된 패스키를 고르면 됩니다. 계정 이름을 적을 필요도 없습니다.</p>
+        <button type="button" id="login-btn" class="btn btn-primary">패스키로 로그인</button>
+        <label class="test-toggle">
+          <input type="checkbox" id="tamper-signature" />
+          실패 테스트: 서명을 1바이트 바꿔서 보내기
+        </label>
+      </div>
+
+      <div class="private-card">
+        <h2>처음이라면: 새 계정 만들기</h2>
+        <p class="private-help">계정 이름과 이 패스키의 이름만 정합니다. 비밀번호 칸은 없습니다.</p>
+        <form id="signup-form" class="private-form">
+          <label>계정 이름 <small>(영문 소문자·숫자·_·- 3~20자)</small>
+            <input name="username" required pattern="[a-z0-9_\-]{3,20}" autocomplete="username webauthn" />
+          </label>
+          <label>패스키 이름 <small>(예: 내 노트북 Windows Hello)</small>
+            <input name="passkeyName" required maxlength="40" />
+          </label>
+          <button type="submit" class="btn btn-primary">패스키 만들고 계정 등록</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 로그인했을 때 -->
+    <section id="signed-in" class="private-section" hidden aria-labelledby="owner-title">
+      <div class="private-owner">
+        <h2 id="owner-title"><span id="owner-name"></span> 님의 비공개 자리</h2>
+        <button type="button" id="logout-btn" class="btn btn-outline btn-small">로그아웃</button>
+      </div>
+
+      <div class="private-card">
+        <h3>비공개 항목 <span id="item-count" class="count-pill"></span></h3>
+        <ul id="item-list" class="item-list"></ul>
+        <form id="item-form" class="private-form private-form-inline">
+          <label>분류 <input name="category" maxlength="20" placeholder="메모" /></label>
+          <label>제목 <input name="title" required maxlength="80" /></label>
+          <label class="wide">내용 <input name="body" maxlength="1000" /></label>
+          <button type="submit" class="btn btn-outline btn-small">항목 추가</button>
+        </form>
+      </div>
+
+      <div class="private-card">
+        <h3>등록된 패스키 <span id="passkey-count" class="count-pill"></span></h3>
+        <p class="private-help">
+          기기를 잃어버릴 때를 대비해 패스키를 두 개 이상 등록해 두세요.
+          <strong>마지막 남은 패스키는 지울 수 없습니다.</strong> 패스키가 하나도 없으면 이 계정에 들어갈 방법이 없어지기 때문입니다.
+        </p>
+        <div class="table-wrap">
+          <table class="passkey-table">
+            <thead>
+              <tr><th>이름</th><th>등록한 날짜</th><th>마지막 사용</th><th>저장한 곳</th><th></th></tr>
+            </thead>
+            <tbody id="passkey-list"></tbody>
+          </table>
+        </div>
+        <form id="add-passkey-form" class="private-form private-form-inline">
+          <label class="wide">새 패스키 이름 <input name="passkeyName" required maxlength="40" placeholder="예: 휴대폰 Google 비밀번호 관리자" /></label>
+          <button type="submit" class="btn btn-outline btn-small">패스키 추가 등록</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 요청 기록 -->
+    <section class="private-section" aria-labelledby="log-title">
+      <div class="private-card log-card">
+        <div class="log-head">
+          <h3 id="log-title">요청 기록</h3>
+          <div>
+            <button type="button" id="log-copy" class="btn btn-outline btn-small">Markdown으로 복사</button>
+            <button type="button" id="log-clear" class="btn btn-outline btn-small">비우기</button>
+          </div>
+        </div>
+        <p class="private-help">
+          이 화면이 서버와 주고받은 요청과 응답입니다. 세션 값은 HttpOnly 쿠키에만 들어 있어 이 기록에 나오지 않습니다.
+        </p>
+        <button type="button" id="replay-btn" class="btn btn-outline btn-small" disabled>
+          재사용 테스트: 마지막 로그인 응답을 그대로 다시 보내기
+        </button>
+        <ol id="log" class="log-list"></ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-meta">RYU INSU — PRIVATE AREA (예시 내용)</p>
+    </div>
+  </footer>
+
+  <script src="js/vendor/simplewebauthn-browser.umd.min.js"></script>
+  <script src="js/private.js"></script>
+</body>
+</html>

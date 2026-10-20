@@ -67,4 +67,16 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && lightbox && !lightbox.hidden) closeLightbox();
   });
+
+  // 인증 서버가 있는 주소에서만 비공개 영역 입구를 보여줍니다(GitHub Pages에서는 숨김).
+  fetch("api/session", { credentials: "same-origin" })
+    .then((res) => (res.ok ? res.json() : null))
+    .then((data) => {
+      if (data && typeof data.authenticated === "boolean") {
+        document.querySelectorAll("[data-needs-server]").forEach((el) => {
+          el.hidden = false;
+        });
+      }
+    })
+    .catch(() => {});
 });
