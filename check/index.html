@@ -177,6 +177,7 @@ openssl s_client -connect 우리도메인:443 -tls1_1 &lt; /dev/null</pre>
     <p class="verdict" id="verdict"></p>
     <div class="bars" id="bars"></div>
     <div class="scale"><span></span><span><i>0</i><i>2</i><i>4</i><i>6</i></span><span></span></div>
+    <p class="help" id="why-low" style="margin-top:10px">평균이 낮은 이유: 대부분의 사이트가 갖춘 것은 ① HTTPS 강제(금융 87%·공공 84%)와, 금융에서는 ⑥ 구버전 TLS 차단(금융 89%·공공 24%)까지였습니다. 보안 헤더 ②~⑤는 두 그룹 모두 20% 이하였습니다(논문 표 1).</p>
 
     <div class="scroll">
     <table>
