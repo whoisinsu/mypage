@@ -4,170 +4,242 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>류인수 소개</title>
-<meta name="description" content="류인수 — 확실하게 하려는 사람. 이야기, 13주 기록의 숫자, 대표작, 이력서.">
+<meta name="description" content="류인수, 확실하게 하려는 사람. 이야기, 13주 기록의 숫자, 대표작, 이력서.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5f5d57;--line:#e3e0d8;--card:#ffffff;--accent:#1f5f5b;--accent-soft:#e6f0ef}
-@media (prefers-color-scheme:dark){:root{--bg:#141413;--fg:#ecebe6;--muted:#a8a69e;--line:#33322e;--card:#1c1c1a;--accent:#7cc4bd;--accent-soft:#1f2b2a}}
+:root{
+  --paper:#F3F5F2; --sheet:#FBFCFA; --ink:#1B2430; --soft:#5B6573; --rule:#D3D9DE;
+  --pen:#2A55C0; --check:#2F7A57; --line-blue:#C9D6F2;
+  --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --hand:"Nanum Pen Script","Apple SD Gothic Neo",cursive;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#161B22; --sheet:#1B2129; --ink:#E4E8EC; --soft:#9AA4B0; --rule:#2E3742;
+  --pen:#8FAEF5; --check:#73C29B; --line-blue:#2B3B5E;}}
+:root[data-theme="dark"]{--paper:#161B22;--sheet:#1B2129;--ink:#E4E8EC;--soft:#9AA4B0;--rule:#2E3742;--pen:#8FAEF5;--check:#73C29B;--line-blue:#2B3B5E}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
-.wrap{max-width:760px;margin:0 auto;padding:0 16px}
-header.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
-.hero .name{font-size:15px;color:var(--muted);margin:0 0 8px;letter-spacing:.02em}
-.hero h1{font-size:clamp(28px,6vw,42px);line-height:1.3;margin:0 0 20px}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero p{margin:0 0 28px;color:var(--muted)}
-nav.doors{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-nav.doors a{display:block;padding:14px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--fg);text-decoration:none;font-weight:600;text-align:center}
-nav.doors a:hover{border-color:var(--accent);color:var(--accent)}
-@media (max-width:520px){nav.doors{grid-template-columns:repeat(2,1fr)}}
-section{padding:48px 0;border-bottom:1px solid var(--line)}
-section>h2{font-size:22px;margin:0 0 6px}
-section>.lead{color:var(--muted);margin:0 0 24px;font-size:15px}
-.story h3{font-size:17px;margin:32px 0 8px;color:var(--accent)}
-.story p{margin:0 0 14px}
-.story p:first-child{font-size:19px;font-weight:700}
-.scenes{display:grid;gap:12px}
-.scene{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-.scene h3{margin:0 0 8px;font-size:16px}
-.scene ul{margin:0;padding-left:18px}
-.scene li{margin:4px 0}
-.scene time{font-variant-numeric:tabular-nums;color:var(--accent);font-weight:600;margin-right:4px}
-.scene .who{color:var(--muted);font-size:14px}
-.nums{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
-.num{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-.num-label{font-size:14px;color:var(--muted)}
-.num-value{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums}
-.num-value small{font-size:14px;font-weight:500;color:var(--muted);margin-left:4px}
-.num-src{font-size:12px;color:var(--muted);margin-top:4px}
-.pair{margin-top:16px;background:var(--accent-soft);border-radius:12px;padding:14px 16px;font-size:15px}
-.works{display:grid;gap:12px}
-.work{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
-.work .tag{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 8px;margin-bottom:8px}
-.work h3{margin:0 0 6px;font-size:17px}
-.work p{margin:0 0 10px;font-size:15px}
-.work.empty{border-style:dashed;color:var(--muted)}
-table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
-th{color:var(--muted);font-weight:600}
-.table-wrap{overflow-x:auto}
-a{color:var(--accent)}
-.docs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-.docs a{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}
-.docs a span{display:block;font-size:13px;color:var(--muted)}
-footer{padding:40px 0 64px;color:var(--muted);font-size:14px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.8 var(--body);word-break:keep-all;overflow-wrap:anywhere;-webkit-font-smoothing:antialiased}
+a{color:var(--pen);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--pen);outline-offset:3px;border-radius:2px}
+
+/* 노트 한 장: 왼쪽 여백(손글씨 메모 자리) + 본문 칸 */
+.page{max-width:1040px;margin:0 auto;padding:0 16px}
+.row{display:grid;grid-template-columns:200px minmax(0,680px);column-gap:48px}
+.margin{font-family:var(--hand);color:var(--pen);font-size:30px;font-weight:400;line-height:1.1;margin:0;padding-top:2px}
+@media (max-width:900px){.row{grid-template-columns:1fr}.margin{padding-top:0;margin-bottom:4px}}
+
+/* 첫 화면 */
+.hero{padding:88px 0 56px}
+.hero .who{font-size:15px;color:var(--soft);margin:0 0 20px}
+.hero h1{text-wrap:balance;font-weight:700;font-size:clamp(34px,6.4vw,58px);line-height:1.22;letter-spacing:-.02em;margin:0}
+.memo{position:relative;display:inline-block;font-family:var(--hand);color:var(--pen);font-size:clamp(25px,3.6vw,31px);line-height:1.3;margin:28px 0 0}
+.memo svg{position:absolute;left:0;bottom:-10px;width:100%;height:14px;overflow:visible}
+.memo path{fill:none;stroke:var(--pen);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:640;stroke-dashoffset:640;animation:draw 1.1s .5s ease-out forwards}
+@media (max-width:600px){.hero h1 br.wide{display:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.memo path{animation:none;stroke-dashoffset:0}}
+.doors{display:flex;flex-wrap:wrap;gap:6px 28px;margin:44px 0 0;padding:0;list-style:none;font-weight:500}
+.doors a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--line-blue);padding-bottom:2px}
+.doors a:hover{border-color:var(--pen);color:var(--pen)}
+
+/* 구역 */
+section{padding:64px 0;border-top:1px solid var(--rule)}
+h2{font-size:26px;font-weight:700;letter-spacing:-.01em;margin:0 0 6px}
+.lead{color:var(--soft);font-size:16px;margin:0 0 32px}
+
+/* 이야기: 소제목(날짜·장소)이 여백 메모로 */
+.story .opening{font-size:21px;font-weight:700;margin:0 0 40px}
+.chapter{margin:0 0 36px}
+.chapter p{margin:0 0 16px}
+
+/* 세 가지 힘 */
+.abilities{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px}
+@media (max-width:760px){.abilities{grid-template-columns:1fr;gap:28px}}
+.ability h3{font-size:17px;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.ability ul{list-style:none;margin:0;padding:0}
+.ability li{font-size:15px;line-height:1.7;padding:10px 0;border-bottom:1px solid var(--rule)}
+.ability time{display:block;font-family:var(--hand);color:var(--pen);font-size:22px;line-height:1}
+.ability .by{color:var(--soft);font-size:13px}
+
+/* 숫자: 장부처럼 */
+.ledger{width:100%;border-collapse:collapse}
+.ledger td{padding:12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.ledger tr:first-child td{border-top:2px solid var(--ink)}
+.ledger .what{font-weight:500}
+.ledger .src{display:block;font-size:13px;color:var(--soft);font-weight:400;margin-top:2px}
+.ledger .val{text-align:right;white-space:nowrap;font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;padding-left:16px}
+.ledger .val small{font-size:14px;font-weight:400;color:var(--soft);margin-left:3px}
+.ledger .group td{border-top:none;padding:28px 0 6px;font-size:14px;color:var(--soft);font-weight:500}
+.pair{margin:32px 0 0;padding:18px 20px;background:var(--sheet);border-left:3px solid var(--pen)}
+.pair .hand{display:block;font-family:var(--hand);color:var(--pen);font-size:25px;line-height:1.1;margin-bottom:6px}
+
+/* 대표작 */
+.feature{background:var(--sheet);border:1px solid var(--rule);border-top:3px solid var(--ink);padding:28px 28px 24px;margin:0 0 20px}
+.feature .kind{font-size:14px;color:var(--soft);margin:0 0 8px}
+.feature h3{font-size:21px;line-height:1.45;margin:0 0 12px}
+.feature p{font-size:16px;margin:0 0 16px}
+.feature .result{display:inline-block;font-weight:700;color:var(--check)}
+.slot{border:2px dashed var(--rule);padding:22px 28px;display:flex;gap:20px;align-items:baseline;flex-wrap:wrap}
+.slot strong{font-size:17px}
+.slot .hand{font-family:var(--hand);color:var(--pen);font-size:25px}
+.slot p{margin:0;color:var(--soft);font-size:15px;flex-basis:100%}
+.all{margin-top:48px}
+.all h3{font-size:17px;margin:0 0 4px}
+.tasks{width:100%;border-collapse:collapse;font-size:15px}
+.tasks th{font-size:13px;color:var(--soft);font-weight:500;text-align:left;padding:8px 8px 8px 0;border-bottom:2px solid var(--ink)}
+.tasks td{padding:10px 8px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.tasks td:first-child{font-variant-numeric:tabular-nums;color:var(--soft);width:2.5em}
+.tasks .ok{color:var(--check);white-space:nowrap}
+.tasks .ok::before{content:"✓ "}
+.tasks .plan{color:var(--soft);white-space:nowrap}
+.scroll{overflow-x:auto}
+
+/* 문서 */
+.docs{list-style:none;margin:0;padding:0}
+.docs li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule);font-size:18px}
+.docs li:first-child{border-top:2px solid var(--ink)}
+.docs span{color:var(--soft);font-size:14px}
+
+footer{border-top:1px solid var(--rule);padding:48px 0 80px;color:var(--soft);font-size:15px}
+footer .hand{font-family:var(--hand);color:var(--pen);font-size:26px;display:block;margin-bottom:6px}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="page">
 
-<header class="hero">
-  <p class="name">류인수 · SKT ALEPH (대구 B반, 2026-08-11 개강)</p>
-  <h1>저는 <em>확실하게 하려는 사람</em>, 류인수입니다.</h1>
-  <p>2023년엔 알아보지 않아 길이 막혔고, 2026년엔 끝까지 알아본 뒤 스스로 골랐습니다. 아래에 그 이야기와 숫자, 만든 것을 모았습니다.</p>
-  <nav class="doors" aria-label="바로 가기">
-    <a href="#story">이야기</a>
-    <a href="#numbers">숫자</a>
-    <a href="#works">대표작</a>
-    <a href="#resume">이력서</a>
-  </nav>
+<header class="hero row">
+  <div class="margin" aria-hidden="true"></div>
+  <div>
+    <p class="who">류인수, SKT ALEPH (대구 B반, 2026-08-11 개강)</p>
+    <h1>저는 확실하게 하려는 사람,<br class="wide"> 류인수입니다.</h1>
+    <p class="memo">2023년엔 알아보지 않아 막혔고,<br>2026년엔 끝까지 알아보고 골랐다.
+      <svg viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C60 3,120 12,180 6 S270 4,298 8"/></svg></p>
+    <ul class="doors">
+      <li><a href="#story">이야기</a></li>
+      <li><a href="#numbers">숫자</a></li>
+      <li><a href="#works">대표작</a></li>
+      <li><a href="#resume">이력서</a></li>
+    </ul>
+  </div>
 </header>
 
 <section id="story" class="story">
-  <h2>이야기</h2>
-  <p class="lead">고난에서 시작해, 다시 일어난 날을 지나, 지금까지.</p>
-  <p>저는 확실하게 하려는 사람, 류인수입니다.</p>
-<h3>2023년 여름, 기상청 휴게실</h3>
-<p>사회복무요원으로 근무하던 기상청 휴게실에서 학교에 전화를 걸었습니다. 대학 1·2학년 때 코딩이라는 벽에 막혀 F를 받은 과목도 있었고, 전공이 맞지 않는다고 생각해 복무하는 동안 주말마다 편입 학원에 다니던 중이었습니다. 돌아온 답은 학점이 모자라 편입 시험을 칠 수 없다는 것이었습니다. 복무 중에도 온라인 강의로 학점을 채울 수 있었다는 사실은 그제야 알았습니다. 확실하게 알아보지 않은 제 탓도 있었습니다.</p>
-<p>지난 일은 되돌릴 수 없어서 전공으로 돌아갔습니다. 수업 중에는 최대한 많이 필기하고, 이해 못 한 부분은 메모해 두었다가 교수님께 물었고, 주말에는 녹화 강의로 애매한 곳을 한 번 더 짚었습니다. 성적은 1·2학년 때보다 나아졌고, 졸업작품 &#x27;차량 헤드라이트 검지를 통한 CCTV 시스템&#x27;처럼 A+를 받은 과목도 생겼습니다. 졸업 뒤에는 무엇을 하고 싶은지 몰라 막막했습니다. 토익 880점을 받고 공기업 인턴에 몇 군데 지원했지만 결과가 좋지 않았고, 그러다 SKT ALEPH 교육에 왔습니다.</p>
-<h3>2026년 9월 9일, 다시 교육장으로</h3>
-<p>8월 말, 취업이 거의 확실하다는 반도체 직무 아카데미에 가느라 교육을 여러 날 빠졌습니다. 그런데 의심이 들어 준비하면서도 그 회사를 계속 알아봤습니다. 그곳에 다니는 이전 기수에게 전화로 묻고 여러 방면으로 확인해 보니(9월 10일 기록: &quot;답을 찾는 과정 자체에 거리낌이 없다&quot;), 전문성을 기르는 일보다 공장 잡일에 가까워 보였습니다. 평택까지 가서 PM 직무 면접을 보고 합격했지만, 가지 않고 이 교육을 끝까지 듣기로 했습니다.</p>
-<p>9월 9일 돌아온 날, 리추얼 기록에 &quot;너무 걱정하지 말고 내 할 거를 열심히 하자&quot;라고 적었습니다. 다음 날 아침에는 &quot;너무 조급해하지 않는 나&quot;를 그날 지킬 가치로 정했습니다. 빠진 부분은 동료와 강사님께 물어 어느 정도 메웠습니다. 9월 22일에는 결석으로 설치하지 못한 실습 도구를 동료가 설치해 주었고, 그날 다른 동료는 &quot;놓친 부분을 포기하지 않는 모습이 동기부여가 된다&quot;고 말해 주었습니다. 저도 받기만 하지는 않았습니다. 9월 11일 동료는 제가 &quot;도움이 필요한 상황이 있으면 먼저 알아채고 도움을 주려고 한다&quot;고 말했습니다.</p>
-<h3>지금, 막히면 적고 다시 합니다</h3>
-<p>9월 14일에는 소개 페이지 하나를 디자인이 마음에 들 때까지 만들고 지우기를 6번 반복했습니다. 10월 7일 방어전 실습에서는 무작정 시작하지 않고 전체 순서부터 확인했고, 10월 13일에는 통과하지 못한 부분을 왜 막혔는지 메모해 두고 &quot;내일은 조금 더 잘 풀릴 거다&quot;라고 적었습니다. 11월 4일에는 웹 공격을 막는 보안 장치를 직접 설정해, 방금까지 성공하던 공격이 막히는 것을 확인했습니다.</p>
-<p>2023년의 저는 확실하게 알아보지 않아 길이 막혔습니다. 2026년의 저는 끝까지 알아본 다음 스스로 고를 수 있었습니다. 하고 싶은 일은 아직 뚜렷하지 않습니다. 그래서 이번에는 서두르지 않고, 제대로 알아보고 고르려고 합니다.</p>
+  <div class="row"><div class="margin">이야기</div>
+    <div><h2>막혔던 날부터 지금까지</h2><p class="lead">장면마다 그 일이 있었던 때를 손글씨로 적어 두었습니다.</p></div>
+  </div>
+  <div class="row"><div class="margin"></div><p class="opening">저는 확실하게 하려는 사람, 류인수입니다.</p></div>
+<div class="row chapter"><h3 class="margin">2023년 여름, 기상청 휴게실</h3><div><p>사회복무요원으로 근무하던 기상청 휴게실에서 학교에 전화를 걸었습니다. 대학 1·2학년 때 코딩이라는 벽에 막혀 F를 받은 과목도 있었고, 전공이 맞지 않는다고 생각해 복무하는 동안 주말마다 편입 학원에 다니던 중이었습니다. 돌아온 답은 학점이 모자라 편입 시험을 칠 수 없다는 것이었습니다. 복무 중에도 온라인 강의로 학점을 채울 수 있었다는 사실은 그제야 알았습니다. 확실하게 알아보지 않은 제 탓도 있었습니다.</p><p>지난 일은 되돌릴 수 없어서 전공으로 돌아갔습니다. 수업 중에는 최대한 많이 필기하고, 이해 못 한 부분은 메모해 두었다가 교수님께 물었고, 주말에는 녹화 강의로 애매한 곳을 한 번 더 짚었습니다. 성적은 1·2학년 때보다 나아졌고, 졸업작품 &#x27;차량 헤드라이트 검지를 통한 CCTV 시스템&#x27;처럼 A+를 받은 과목도 생겼습니다. 졸업 뒤에는 무엇을 하고 싶은지 몰라 막막했습니다. 토익 880점을 받고 공기업 인턴에 몇 군데 지원했지만 결과가 좋지 않았고, 그러다 SKT ALEPH 교육에 왔습니다.</p></div></div>
+<div class="row chapter"><h3 class="margin">2026년 9월 9일, 다시 교육장으로</h3><div><p>8월 말, 취업이 거의 확실하다는 반도체 직무 아카데미에 가느라 교육을 여러 날 빠졌습니다. 그런데 의심이 들어 준비하면서도 그 회사를 계속 알아봤습니다. 그곳에 다니는 이전 기수에게 전화로 묻고 여러 방면으로 확인해 보니(9월 10일 기록: &quot;답을 찾는 과정 자체에 거리낌이 없다&quot;), 전문성을 기르는 일보다 공장 잡일에 가까워 보였습니다. 평택까지 가서 PM 직무 면접을 보고 합격했지만, 가지 않고 이 교육을 끝까지 듣기로 했습니다.</p><p>9월 9일 돌아온 날, 리추얼 기록에 &quot;너무 걱정하지 말고 내 할 거를 열심히 하자&quot;라고 적었습니다. 다음 날 아침에는 &quot;너무 조급해하지 않는 나&quot;를 그날 지킬 가치로 정했습니다. 빠진 부분은 동료와 강사님께 물어 어느 정도 메웠습니다. 9월 22일에는 결석으로 설치하지 못한 실습 도구를 동료가 설치해 주었고, 그날 다른 동료는 &quot;놓친 부분을 포기하지 않는 모습이 동기부여가 된다&quot;고 말해 주었습니다. 저도 받기만 하지는 않았습니다. 9월 11일 동료는 제가 &quot;도움이 필요한 상황이 있으면 먼저 알아채고 도움을 주려고 한다&quot;고 말했습니다.</p></div></div>
+<div class="row chapter"><h3 class="margin">지금, 막히면 적고 다시 합니다</h3><div><p>9월 14일에는 소개 페이지 하나를 디자인이 마음에 들 때까지 만들고 지우기를 6번 반복했습니다. 10월 7일 방어전 실습에서는 무작정 시작하지 않고 전체 순서부터 확인했고, 10월 13일에는 통과하지 못한 부분을 왜 막혔는지 메모해 두고 &quot;내일은 조금 더 잘 풀릴 거다&quot;라고 적었습니다. 11월 4일에는 웹 공격을 막는 보안 장치를 직접 설정해, 방금까지 성공하던 공격이 막히는 것을 확인했습니다.</p><p>2023년의 저는 확실하게 알아보지 않아 길이 막혔습니다. 2026년의 저는 끝까지 알아본 다음 스스로 고를 수 있었습니다. 하고 싶은 일은 아직 뚜렷하지 않습니다. 그래서 이번에는 서두르지 않고, 제대로 알아보고 고르려고 합니다.</p></div></div>
 </section>
 
 <section id="abilities">
-  <h2>세 가지 힘이 드러난 장면</h2>
-  <p class="lead">리추얼 기록에서 장치가 뽑은 후보 가운데 제가 고른 것만 올립니다.</p>
-  <div class="scenes">
-  <div class="scene"><h3>자기조절력</h3><ul><li><time>2026-09-10</time> 너무 조급해하지 않는 나 <span class="who">— 내가 쓴 나</span></li><li><time>2026-10-07</time> 무작정 시작하지 않고 순서를 확인하니 진행이 수월했다. 이런 습관을 계속 가져가자. <span class="who">— 내가 쓴 나</span></li><li><time>2026-11-04</time> 상황이 좋지 않아도 차분한 나 <span class="who">— 내가 쓴 나</span></li></ul></div>
-<div class="scene"><h3>대인관계력</h3><ul><li><time>2026-08-13</time> 옆자리에 앉은 분이 수업 중 놓친 부분을 물어보셔서 내가 아는 것을 알려드렸다. <span class="who">— 내가 쓴 나</span></li><li><time>2026-09-11</time> 도움이 필요한 상황이 있으면 먼저 알아채시고 도움을 주려고 하시는 것 같다. <span class="who">— 동료가 본 나</span></li><li><time>2026-10-15</time> 혼자 고민하는것보다 주변 사람들에게 연락해서 도움을 요청했다. <span class="who">— 내가 쓴 나</span></li></ul></div>
-<div class="scene"><h3>자기동기력</h3><ul><li><time>2026-09-14</time> 결과물의 완성도를 내 기준으로 판단하고, 그 기준에 도달할 때까지 다시 시도하는 걸 마다하지 않음 <span class="who">— 내가 쓴 나</span></li><li><time>2026-09-18</time> 막혔어도 포기하지 않고 다른 접근법을 시도해봤다. <span class="who">— 내가 쓴 나</span></li><li><time>2026-11-03</time> 실습할 때 막혀도 끝까지 해결하려는 모습이 인상깊었다. <span class="who">— 동료가 본 나</span></li></ul></div>
+  <div class="row"><div class="margin">세 가지 힘</div>
+    <div>
+      <h2>기록에 남은 장면</h2>
+      <p class="lead">리추얼 기록에서 장치가 뽑은 후보 가운데 제가 직접 고른 것만 올립니다.</p>
+    </div>
+  </div>
+  <div class="row"><div class="margin"></div>
+    <div class="abilities">
+    <div class="ability"><h3>자기조절력</h3><ul><li><time datetime="2026-09-10">9월 10일</time>너무 조급해하지 않는 나 <span class="by">(내 기록)</span></li><li><time datetime="2026-10-07">10월 7일</time>무작정 시작하지 않고 순서를 확인하니 진행이 수월했다. 이런 습관을 계속 가져가자. <span class="by">(내 기록)</span></li><li><time datetime="2026-11-04">11월 4일</time>상황이 좋지 않아도 차분한 나 <span class="by">(내 기록)</span></li></ul></div>
+<div class="ability"><h3>대인관계력</h3><ul><li><time datetime="2026-08-13">8월 13일</time>옆자리에 앉은 분이 수업 중 놓친 부분을 물어보셔서 내가 아는 것을 알려드렸다. <span class="by">(내 기록)</span></li><li><time datetime="2026-09-11">9월 11일</time>도움이 필요한 상황이 있으면 먼저 알아채시고 도움을 주려고 하시는 것 같다. <span class="by">(동료의 말)</span></li><li><time datetime="2026-10-15">10월 15일</time>혼자 고민하는것보다 주변 사람들에게 연락해서 도움을 요청했다. <span class="by">(내 기록)</span></li></ul></div>
+<div class="ability"><h3>자기동기력</h3><ul><li><time datetime="2026-09-14">9월 14일</time>결과물의 완성도를 내 기준으로 판단하고, 그 기준에 도달할 때까지 다시 시도하는 걸 마다하지 않음 <span class="by">(내 기록)</span></li><li><time datetime="2026-09-18">9월 18일</time>막혔어도 포기하지 않고 다른 접근법을 시도해봤다. <span class="by">(내 기록)</span></li><li><time datetime="2026-11-03">11월 3일</time>실습할 때 막혀도 끝까지 해결하려는 모습이 인상깊었다. <span class="by">(동료의 말)</span></li></ul></div>
+    </div>
   </div>
 </section>
 
 <section id="numbers">
-  <h2>숫자로 본 13주</h2>
-  <p class="lead">부풀리지 않고 기록에 있는 그대로 옮겼습니다. 마지막 리추얼 기록: 2026-11-04</p>
-  <div class="nums">
-  <div class="num"><div class="num-label">리추얼을 쓴 날</div><div class="num-value">44<small>일</small></div><div class="num-src">출처: 리추얼 기록 · 2026-08-11 ~ 2026-11-04</div></div>
-<div class="num"><div class="num-label">기록이 있는 주</div><div class="num-value">12<small>주 / 13주</small></div><div class="num-src">출처: 리추얼 기록 · 첫 기록일부터 7일 단위로 센 주</div></div>
-<div class="num"><div class="num-label">마무리 리추얼까지 쓴 날</div><div class="num-value">39<small>일</small></div><div class="num-src">출처: 리추얼 기록 · 아침과 저녁을 모두 쓴 날</div></div>
-<div class="num"><div class="num-label">저녁에 &#x27;실천했다&#x27;고 적은 날</div><div class="num-value">17<small>일</small></div><div class="num-src">출처: 리추얼 기록 · 강점 행동 칸이 &#x27;실천했다&#x27;인 날</div></div>
-<div class="num"><div class="num-label">기록이 빈 가장 긴 구간</div><div class="num-value">9<small>평일</small></div><div class="num-src">출처: 리추얼 기록 · 2026-08-27 ~ 2026-09-08</div></div>
-<div class="num"><div class="num-label">그 뒤 다시 기록한 날</div><div class="num-value">33<small>일</small></div><div class="num-src">출처: 리추얼 기록 · 2026-09-09 ~ 2026-11-04</div></div>
-<div class="num"><div class="num-label">훈련일</div><div class="num-value">58<small>일</small></div><div class="num-src">출처: 내 출석 기록 · 대구 B반 · 개강 2026-08-11부터 화면 확인일까지, 훈련일 기준 (2026-11-05 확인)</div></div>
-<div class="num"><div class="num-label">출석</div><div class="num-value">50<small>일</small></div><div class="num-src">출처: 내 출석 기록 · 대구 B반 · 개강 2026-08-11부터 화면 확인일까지, 훈련일 기준 (2026-11-05 확인)</div></div>
-<div class="num"><div class="num-label">결석</div><div class="num-value">7<small>일</small></div><div class="num-src">출처: 내 출석 기록 · 대구 B반 · 개강 2026-08-11부터 화면 확인일까지, 훈련일 기준 (2026-11-05 확인)</div></div>
-<div class="num"><div class="num-label">출석률</div><div class="num-value">86.2%<small></small></div><div class="num-src">출처: 내 출석 기록 · 대구 B반 · 개강 2026-08-11부터 화면 확인일까지, 훈련일 기준 (2026-11-05 확인)</div></div>
-<div class="num"><div class="num-label">마스터 승인 받은 과제</div><div class="num-value">11<small>개</small></div><div class="num-src">출처: 내 제출 현황 · 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11번</div></div>
+  <div class="row"><div class="margin">숫자</div>
+    <div>
+      <h2>13주를 숫자로</h2>
+      <p class="lead">기록에 있는 그대로 옮겼습니다. 마지막 리추얼 기록일은 2026-11-04입니다.</p>
+      <table class="ledger">
+      <tr class="group"><td colspan="2">리추얼 기록</td></tr>
+<tr><td class="what">리추얼을 쓴 날<span class="src">2026-08-11 ~ 2026-11-04</span></td><td class="val">44<small>일</small></td></tr>
+<tr><td class="what">기록이 있는 주<span class="src">첫 기록일부터 7일 단위로 센 주</span></td><td class="val">12<small>주 / 13주</small></td></tr>
+<tr><td class="what">마무리 리추얼까지 쓴 날<span class="src">아침과 저녁을 모두 쓴 날</span></td><td class="val">39<small>일</small></td></tr>
+<tr><td class="what">저녁에 &#x27;실천했다&#x27;고 적은 날<span class="src">강점 행동 칸이 &#x27;실천했다&#x27;인 날</span></td><td class="val">17<small>일</small></td></tr>
+<tr><td class="what">기록이 빈 가장 긴 구간<span class="src">2026-08-27 ~ 2026-09-08</span></td><td class="val">9<small>평일</small></td></tr>
+<tr><td class="what">그 뒤 다시 기록한 날<span class="src">2026-09-09 ~ 2026-11-04</span></td><td class="val">33<small>일</small></td></tr>
+<tr class="group"><td colspan="2">내 출석 기록</td></tr>
+<tr><td class="what">훈련일<span class="src">대구 B반 · 개강 2026-08-11부터 화면 확인일까지, 훈련일 기준 (2026-11-05 확인)</span></td><td class="val">58<small>일</small></td></tr>
+<tr><td class="what">출석<span class="src">대구 B반 · 개강 2026-08-11부터 화면 확인일까지, 훈련일 기준 (2026-11-05 확인)</span></td><td class="val">50<small>일</small></td></tr>
+<tr><td class="what">결석<span class="src">대구 B반 · 개강 2026-08-11부터 화면 확인일까지, 훈련일 기준 (2026-11-05 확인)</span></td><td class="val">7<small>일</small></td></tr>
+<tr><td class="what">출석률<span class="src">대구 B반 · 개강 2026-08-11부터 화면 확인일까지, 훈련일 기준 (2026-11-05 확인)</span></td><td class="val">86.2%<small></small></td></tr>
+<tr class="group"><td colspan="2">내 제출 현황</td></tr>
+<tr><td class="what">마스터 승인 받은 과제<span class="src">1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11번</span></td><td class="val">11<small>개</small></td></tr>
+      </table>
+      <div class="pair"><span class="hand">이 숫자는 이야기의 9월 9일 장면과 짝입니다</span>리추얼 기록이 비어 있는 평일 9일(2026-08-27 ~ 2026-09-08)은 반도체 직무 아카데미에 가 있던 기간입니다. 돌아온 뒤에는 2026-09-09 ~ 2026-11-04 사이에 33일을 다시 기록했습니다. 출처는 리추얼 기록입니다.</div>
+    </div>
   </div>
-  <div class="pair"><strong>숫자와 장면 짝짓기</strong> · 리추얼 기록이 비어 있는 평일 9일(2026-08-27 ~ 2026-09-08)은 이야기의 「2026년 9월 9일, 다시 교육장으로」에 나오는 반도체 직무 아카데미 기간입니다. 돌아온 뒤에는 2026-09-09 ~ 2026-11-04 동안 33일을 다시 기록했습니다. (출처: 리추얼 기록)</div>
 </section>
 
 <section id="works">
-  <h2>대표작</h2>
-  <p class="lead">처음 보는 분께 먼저 보여 드리고 싶은 두 가지입니다.</p>
-  <div class="works">
-    <article class="work">
-      <span class="tag">10번 · 논문</span>
-      <h3>금융권과 중앙행정기관 웹사이트의 보안 설정 비교: 보안 헤더와 구버전 TLS 차단을 중심으로</h3>
-      <p>중앙행정기관 50곳과 금융회사 53곳의 메인 페이지를 6개 보안 항목으로 2026-11-03에 세 차례 측정했습니다. 금융 2.32점, 공공 1.58점으로 차이가 0.74점이라 미리 정한 기준 1점에 못 미쳐 가설을 기각했고, 차이의 대부분이 구버전 TLS 차단에서 나온다는 것을 확인해 다음 가설로 좁혔습니다.</p>
-      <a href="paper.html">논문 읽기 →</a>
-    </article>
-    <article class="work empty">
-      <span class="tag">13번 · 앱</span>
-      <h3>앱 자리</h3>
-      <p>13번 과제 예정일은 2026년 11월 5일입니다. 앱을 마치면 이 자리에 넣습니다.</p>
-    </article>
-  </div>
-  <h3 style="margin:32px 0 8px;font-size:17px">과정에서 만든 것 전체</h3>
-  <div class="table-wrap">
-  <table>
-    <thead><tr><th>번호</th><th>과제</th><th>상태</th><th>경력기술서 능력</th></tr></thead>
-    <tbody>
-    <tr><td>1</td><td><a href="https://whoisinsu.github.io/mypage/">나를 소개하는 한 페이지</a></td><td>마스터 승인</td><td>자기동기력</td></tr>
-<tr><td>2</td><td><a href="https://whoisinsu.github.io/rhythm-game/">내가 설계한 미니게임</a></td><td>마스터 승인</td><td>자기동기력</td></tr>
-<tr><td>3</td><td><a href="https://claude.ai/artifact/Y8LXFKLL5rdw1zjQZ66xKP">짤·카드 스튜디오</a></td><td>마스터 승인</td><td></td></tr>
-<tr><td>4</td><td><a href="https://information-board-mu.vercel.app">오늘의 진짜 정보판 — 데이터가 안 올 때</a></td><td>마스터 승인</td><td></td></tr>
-<tr><td>5</td><td>대화가 끊겨도 이어지는 프로젝트</td><td>마스터 승인</td><td></td></tr>
-<tr><td>6</td><td><a href="https://pds-diary.plandosee-diary.workers.dev">플랜두씨 다이어리 1 — 내 계획과 실제를 담는 앱</a></td><td>마스터 승인</td><td></td></tr>
-<tr><td>7</td><td><a href="https://pds-diary.plandosee-diary.workers.dev">플랜두씨 다이어리 2 — 인증을 붙이고 어떻게 붙였는지 설명하기</a></td><td>마스터 승인</td><td>자기조절력</td></tr>
-<tr><td>8</td><td><a href="https://mypage.plandosee-diary.workers.dev">내 소개 페이지에 패스키 달기</a></td><td>마스터 승인</td><td></td></tr>
-<tr><td>9</td><td>나를 말하는 에이전트 — 서사 문서</td><td>마스터 승인</td><td>대인관계력</td></tr>
-<tr><td>10</td><td><a href="paper.html">AI와 함께 쓰는 첫 논문</a></td><td>마스터 승인</td><td>자기조절력</td></tr>
-<tr><td>11</td><td>나에 대한 장편소설</td><td>마스터 승인</td><td></td></tr>
-<tr><td>13</td><td>마지막 과제 앱</td><td>예정</td><td></td></tr>
-    </tbody>
-  </table>
+  <div class="row"><div class="margin">대표작</div>
+    <div>
+      <h2>만든 것</h2>
+      <p class="lead">처음 보시는 분께 먼저 보여 드리고 싶은 두 가지와, 과정에서 만든 것 전체입니다.</p>
+      <article class="feature">
+        <p class="kind">10번 과제, 논문</p>
+        <h3>금융권과 중앙행정기관 웹사이트의 보안 설정 비교: 보안 헤더와 구버전 TLS 차단을 중심으로</h3>
+        <p>중앙행정기관 50곳과 금융회사 53곳의 메인 페이지를 6개 보안 항목으로 2026-11-03에 세 차례 측정했습니다. 금융 2.32점, 공공 1.58점으로 차이가 0.74점이라 미리 정한 기준 1점에 못 미쳐 가설을 기각했고, 차이의 대부분이 구버전 TLS 차단에서 나온다는 것을 확인해 다음 가설로 좁혔습니다.</p>
+        <a href="paper.html">논문 전문 읽기</a>
+      </article>
+      <div class="slot">
+        <strong>13번 과제, 앱</strong><span class="hand">자리 맡아 둠</span>
+        <p>13번 과제 예정일은 2026년 11월 5일입니다. 앱을 마치면 이 자리에 넣습니다.</p>
+      </div>
+      <div class="all">
+        <h3>과정에서 만든 것 전체</h3>
+        <div class="scroll">
+        <table class="tasks">
+          <thead><tr><th>번호</th><th>과제</th><th>상태</th></tr></thead>
+          <tbody>
+          <tr><td>1</td><td><a href="https://whoisinsu.github.io/mypage/">나를 소개하는 한 페이지</a></td><td class="ok">마스터 승인</td></tr>
+<tr><td>2</td><td><a href="https://whoisinsu.github.io/rhythm-game/">내가 설계한 미니게임</a></td><td class="ok">마스터 승인</td></tr>
+<tr><td>3</td><td><a href="https://claude.ai/artifact/Y8LXFKLL5rdw1zjQZ66xKP">짤·카드 스튜디오</a></td><td class="ok">마스터 승인</td></tr>
+<tr><td>4</td><td><a href="https://information-board-mu.vercel.app">오늘의 진짜 정보판 — 데이터가 안 올 때</a></td><td class="ok">마스터 승인</td></tr>
+<tr><td>5</td><td>대화가 끊겨도 이어지는 프로젝트</td><td class="ok">마스터 승인</td></tr>
+<tr><td>6</td><td><a href="https://pds-diary.plandosee-diary.workers.dev">플랜두씨 다이어리 1 — 내 계획과 실제를 담는 앱</a></td><td class="ok">마스터 승인</td></tr>
+<tr><td>7</td><td><a href="https://pds-diary.plandosee-diary.workers.dev">플랜두씨 다이어리 2 — 인증을 붙이고 어떻게 붙였는지 설명하기</a></td><td class="ok">마스터 승인</td></tr>
+<tr><td>8</td><td><a href="https://mypage.plandosee-diary.workers.dev">내 소개 페이지에 패스키 달기</a></td><td class="ok">마스터 승인</td></tr>
+<tr><td>9</td><td>나를 말하는 에이전트 — 서사 문서</td><td class="ok">마스터 승인</td></tr>
+<tr><td>10</td><td><a href="paper.html">AI와 함께 쓰는 첫 논문</a></td><td class="ok">마스터 승인</td></tr>
+<tr><td>11</td><td>나에 대한 장편소설</td><td class="ok">마스터 승인</td></tr>
+<tr><td>13</td><td>마지막 과제 앱</td><td class="plan">예정</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="resume">
-  <h2>이력서와 문서</h2>
-  <p class="lead">지원서에 바로 붙일 수 있는 형태로 같은 내용을 정리했습니다.</p>
-  <div class="docs">
-    <a href="docs/이력서_류인수.pdf">이력서<span>PDF</span></a>
-    <a href="docs/자기소개서_류인수.pdf">자기소개서<span>PDF</span></a>
-    <a href="docs/경력기술서_류인수.pdf">경력기술서<span>PDF</span></a>
+  <div class="row"><div class="margin">이력서</div>
+    <div>
+      <h2>지원서에 붙일 문서</h2>
+      <p class="lead">이 페이지와 같은 내용을 문서로 정리했습니다.</p>
+      <ul class="docs">
+        <li><a href="docs/이력서_류인수.pdf">이력서</a><span>PDF</span></li>
+        <li><a href="docs/자기소개서_류인수.pdf">자기소개서</a><span>PDF</span></li>
+        <li><a href="docs/경력기술서_류인수.pdf">경력기술서</a><span>PDF</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<footer>
-  연락: <a href="mailto:isssi611@gmail.com">isssi611@gmail.com</a><br>
-  이 페이지의 숫자와 장면 후보는 기록 파일을 넣고 한 번 돌리면 다시 만들어집니다.
+<footer class="row">
+  <div class="margin"></div>
+  <div>
+    <span class="hand">연락 주세요</span>
+    <a href="mailto:isssi611@gmail.com">isssi611@gmail.com</a>
+    <p>이 페이지의 숫자와 장면 후보는 새 기록을 넣고 장치를 한 번 돌리면 다시 만들어집니다.</p>
+  </div>
 </footer>
 
 </div>

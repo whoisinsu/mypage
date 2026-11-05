@@ -163,18 +163,21 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <style>:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5f5d57;--line:#e3e0d8;--accent:#1f5f5b}
-  @media (prefers-color-scheme:dark){:root{--bg:#141413;--fg:#ecebe6;--muted:#a8a69e;--line:#33322e;--accent:#7cc4bd}}
-  body{margin:0 auto;max-width:760px;padding:32px 16px 64px;background:var(--bg);color:var(--fg);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
-  h1{font-size:26px;line-height:1.4}h2{margin-top:40px;font-size:21px}h3{font-size:17px}
-  a{color:var(--accent)}table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow-x:auto}
-  th,td{border-bottom:1px solid var(--line);padding:6px;text-align:left;vertical-align:top}
-  blockquote{margin:16px 0;padding:8px 14px;border-left:3px solid var(--accent);color:var(--muted)}
-  code{font-size:14px}pre{overflow-x:auto}hr{border:0;border-top:1px solid var(--line);margin:32px 0}
-  .back{display:inline-block;margin-bottom:24px}</style>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <style>:root{--paper:#F3F5F2;--ink:#1B2430;--soft:#5B6573;--rule:#D3D9DE;--pen:#2A55C0}
+  @media (prefers-color-scheme:dark){:root{--paper:#161B22;--ink:#E4E8EC;--soft:#9AA4B0;--rule:#2E3742;--pen:#8FAEF5}}
+  body{margin:0 auto;max-width:720px;padding:40px 16px 80px;background:var(--paper);color:var(--ink);font:400 16px/1.8 "IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
+  h1{font-size:28px;line-height:1.4;letter-spacing:-.01em}h2{margin-top:48px;font-size:21px;padding-top:16px;border-top:2px solid var(--ink)}h3{font-size:17px}
+  a{color:var(--pen);text-underline-offset:3px}
+  table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow-x:auto}
+  th{border-bottom:2px solid var(--ink);color:var(--soft);font-weight:500}
+  th,td{padding:7px 8px 7px 0;text-align:left;vertical-align:top}td{border-bottom:1px solid var(--rule)}
+  blockquote{margin:16px 0;padding:6px 14px;border-left:3px solid var(--pen);color:var(--soft)}
+  pre{overflow-x:auto}hr{border:0;border-top:1px solid var(--rule);margin:32px 0}
+  .back{display:inline-block;margin-bottom:28px;font-family:"Nanum Pen Script",cursive;font-size:26px;text-decoration:none}</style>
 </head>
 <body>
-<a class="back" href="./">← 류인수 소개로 돌아가기</a>
+<a class="back" href="./">류인수 소개로 돌아가기</a>
 <h1
 id="금융권과-중앙행정기관-웹사이트의-보안-설정-비교-보안-헤더와-구버전-tls-차단을-중심으로">금융권과
 중앙행정기관 웹사이트의 보안 설정 비교: 보안 헤더와 구버전 TLS 차단을
