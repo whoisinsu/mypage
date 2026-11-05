@@ -301,6 +301,9 @@ openssl s_client -connect 우리도메인:443 -tls1_1 &lt; /dev/null</pre>
       if (!line) continue;
       var m = line.match(/^([A-Za-z0-9!#$%&'*+.^_`|~-]+)\s*:\s*(.*)$/);
       if (m && m[2] !== '') { out.push([m[1].toLowerCase(), m[2].trim()]); continue; }
+      // 크롬 개발자 도구에서 드래그해 복사하면 "이름<탭>값" 으로 붙는다
+      var t = line.match(/^([A-Za-z0-9!#$%&'*+.^_`|~-]+)(?:\t+| {2,})(\S.*)$/);
+      if (t) { out.push([t[1].toLowerCase(), t[2].trim()]); continue; }
       var nm = m ? m[1] : (NAME.test(line) ? line : null);
       if (nm && i + 1 < lines.length && lines[i + 1].trim() && !/^[A-Za-z0-9-]+\s*:/.test(lines[i + 1].trim())) {
         out.push([nm.toLowerCase(), lines[i + 1].trim()]); i++;
