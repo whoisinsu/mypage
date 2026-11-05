@@ -66,7 +66,8 @@ pre{background:var(--paper);border:1px solid var(--rule);border-radius:6px;paddi
 .score{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:8px 0 6px}
 .score .big{font-size:56px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
 .score .of{font-size:18px;color:var(--soft)}
-.verdict{font-size:17px;font-weight:500;margin:0 0 18px}
+.verdict{font-size:17px;font-weight:500;margin:0 0 12px}
+.scope-note{font-size:14px;margin:0 0 20px;padding:8px 12px;border-left:3px solid var(--pen);background:var(--sheet)}
 .bars{display:grid;gap:8px;margin:0 0 8px}
 .bar{display:grid;grid-template-columns:110px 1fr 52px;gap:10px;align-items:center;font-size:14px}
 .bar .track{height:14px;background:var(--paper);border:1px solid var(--rule);border-radius:3px;position:relative;overflow:hidden}
@@ -175,6 +176,7 @@ openssl s_client -connect 우리도메인:443 -tls1_1 &lt; /dev/null</pre>
     <h2 id="h-step2"><span class="n">2</span>점수와 비교</h2>
     <div class="score"><span class="big" id="score">0</span><span class="of">/ 6점</span></div>
     <p class="verdict" id="verdict"></p>
+    <p class="scope-note" id="scope-note">이 점수는 <b>밖에서 보이는 설정 6개</b>를 센 것이지, 사이트가 얼마나 안전한지가 아닙니다. 실시간 탐지·대응, 웹 방화벽 같은 방어는 점수에 나타나지 않습니다.</p>
     <div class="bars" id="bars"></div>
     <div class="scale"><span></span><span><i>0</i><i>2</i><i>4</i><i>6</i></span><span></span></div>
     <p class="help" id="why-low" style="margin-top:10px">금융·공공 평균이 낮은 이유: 대부분의 사이트가 갖춘 것은 ① HTTPS 강제(금융 87%·공공 84%)와, 금융에서는 ⑥ 구버전 TLS 차단(금융 89%·공공 24%)까지였습니다. 보안 헤더 ②~⑤는 두 그룹 모두 20% 이하였습니다(논문 표 1).</p>
@@ -203,7 +205,7 @@ openssl s_client -connect 우리도메인:443 -tls1_1 &lt; /dev/null</pre>
       <li><b>채점 규칙</b>: 논문 2.2절의 6개 항목을 그대로 씁니다. 항목마다 1점, 6점 만점입니다.</li>
       <li><b>비교 기준</b>: 금융 평균 2.321점, 공공 평균 1.580점, 금융공기업 평균 2.125점, 그리고 항목별 적용률(표 1)을 씁니다.</li>
       <li><b>핵심 결과</b>: 두 그룹의 차이 0.741점 가운데 0.647점이 ⑥ 구버전 TLS 차단 한 항목에서 나왔습니다(금융 89%, 공공 24%). 보안 헤더 ②~⑤는 두 그룹 모두 20% 이하였습니다.</li>
-      <li><b>한계</b>: 논문은 메인 페이지 한 곳에서 헤더가 있는지만 봤습니다. 점수가 높다고 설정이 올바르다는 뜻은 아니고, 로그인·거래 페이지는 따로 봐야 합니다.</li>
+      <li><b>한계</b>: 논문은 메인 페이지 한 곳에서 헤더가 있는지만 봤습니다. 점수가 높다고 설정이 올바르다는 뜻은 아니고, 로그인·거래 페이지는 따로 봐야 합니다. 또 밖에서 보이는 설정만 재므로 실시간 탐지·대응(XDR), 웹 방화벽 같은 운영 중 방어는 반영하지 못합니다. 점수가 낮다고 위험한 사이트라는 뜻은 아닙니다.</li>
     </ul>
   </section>
   </main>
