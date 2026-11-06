@@ -146,7 +146,7 @@ footer{font-size:13px;color:var(--soft);padding:28px 0 0}
     </select>
 
     <label class="field" for="headers">메인 페이지의 응답 헤더 (②~⑤ 항목을 여기서 자동 채점)</label>
-    <p class="help">브라우저에서 F12 → 네트워크 탭 → 새로고침 → 맨 위 문서 → 응답 헤더를 복사해 붙여 넣습니다. 리다이렉트가 여러 번이면 논문처럼 마지막 응답만 채점합니다.</p>
+    <p class="help">브라우저에서 F12 → Network 탭 → 새로고침 → 맨 위 문서 → Response headers를 복사해 붙여 넣습니다. 리다이렉트가 여러 번이면 논문처럼 마지막 응답만 채점합니다.</p>
     <textarea id="headers" spellcheck="false" placeholder="HTTP/1.1 200 OK&#10;Strict-Transport-Security: max-age=31536000&#10;X-Frame-Options: SAMEORIGIN&#10;..."></textarea>
     <details>
       <summary>명령어로 헤더를 받는 방법</summary>
@@ -418,7 +418,7 @@ openssl s_client -connect 우리도메인:443 -tls1_1 &lt; /dev/null</pre>
     });
 
     if (!raw.trim()) warn.push('응답 헤더가 비어 있어 ②~⑤를 "확인 필요"로 두고 0점으로 셌습니다. 헤더를 붙여 넣으면 자동으로 채점합니다.');
-    else if (!parsed.count) warn.push('붙여 넣은 글에서 "이름: 값" 형식의 헤더를 찾지 못했습니다. ②~⑤는 "확인 필요"로 두었습니다. 개발자 도구의 응답 헤더나 curl -sIL 출력을 그대로 붙여 넣어 주세요.');
+    else if (!parsed.count) warn.push('붙여 넣은 글에서 "이름: 값" 형식의 헤더를 찾지 못했습니다. ②~⑤는 "확인 필요"로 두었습니다. 개발자 도구의 Response headers나 curl -sIL 출력을 그대로 붙여 넣어 주세요.');
     else if (parsed.redirects > 0) warn.push('응답이 ' + (parsed.redirects + 1) + '개 들어 있어 논문처럼 마지막 응답의 헤더만 채점했습니다.');
     if (https === 'unk' || tls === 'unk') warn.push('①이나 ⑥을 "모름"으로 두었습니다. 위의 "확인하는 방법"으로 확인해 다시 채점하면 점수가 정확해집니다.');
 
