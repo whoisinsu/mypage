@@ -107,6 +107,17 @@ ol.fix p{margin:4px 0}
 .done{color:var(--check);font-weight:500}
 .paper-facts{font-size:15px;padding-left:20px;margin:8px 0 0}
 .paper-facts li{margin:0 0 6px}
+.cmp-in{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:700px){.cmp-in{grid-template-columns:1fr}}
+.cmp-in label small{font-weight:400;color:var(--soft);font-size:13px}
+.cmp-in textarea{min-height:150px}
+.cmp-h{font-size:16px;margin:24px 0 0}
+#cmp-headers td:last-child,#cmp-items td{white-space:nowrap}
+#cmp-headers td{font-size:13px}
+td.same{color:var(--soft)} td.diff{color:var(--miss);font-weight:700} td.vol{color:var(--soft);font-style:italic}
+.next{margin:24px 0 0;padding:14px 18px;background:var(--sheet);border:1px solid var(--rule);border-left:3px solid var(--pen)}
+.next .kind{font-family:var(--hand);color:var(--pen);font-size:22px;line-height:1;margin:0 0 6px}
+.next p{margin:0;font-size:15px}
 footer{font-size:13px;color:var(--soft);padding:28px 0 0}
 @media (max-width:560px){.bar,.scale{grid-template-columns:78px 1fr 44px}.score .big{font-size:46px}}
 </style>
@@ -246,6 +257,40 @@ openssl s_client -connect 우리도메인:443 -tls1_1 &lt; /dev/null</pre>
     </div>
   </section>
 
+  <section id="compare" aria-labelledby="h-compare">
+    <h2 id="h-compare"><span class="n">+</span>두 응답 비교하기</h2>
+    <p class="lead">같은 사이트도 보는 쪽에 따라 다른 헤더를 줄 수 있습니다. 실제 운영자에게서 "자동 검사(스캔)에는 정보를 빼거나 다른 헤더를 보낸다"는 설명을 듣고 만든 기능입니다. 브라우저에서 복사한 헤더와 자동 도구(curl 등)로 받은 헤더처럼, 같은 사이트의 응답 두 개를 넣으면 무엇이 다른지 보여 줍니다.</p>
+    <div class="examples">
+      <button type="button" id="cmp-example">예시: 자동 도구에 다른 헤더를 주는 가상 사이트</button>
+      <button type="button" id="cmp-clear">비우기</button>
+    </div>
+    <div class="cmp-in">
+      <div>
+        <label class="field" for="cmp-a">응답 A <small>(예: 브라우저 개발자 도구에서 복사)</small></label>
+        <textarea id="cmp-a" spellcheck="false" placeholder="Response headers를 붙여 넣으세요"></textarea>
+      </div>
+      <div>
+        <label class="field" for="cmp-b">응답 B <small>(예: curl -sIL 출력)</small></label>
+        <textarea id="cmp-b" spellcheck="false" placeholder="같은 사이트의 다른 응답을 붙여 넣으세요"></textarea>
+      </div>
+    </div>
+    <div class="actions"><button type="button" class="primary" id="cmp-run">비교하기</button></div>
+    <div class="notice" id="cmp-notice" role="status" aria-live="polite"></div>
+    <div id="cmp-out" hidden>
+      <p class="verdict" id="cmp-verdict"></p>
+      <div class="scroll"><table>
+        <thead><tr><th>항목</th><th>응답 A</th><th>응답 B</th><th>같은가</th></tr></thead>
+        <tbody id="cmp-items"></tbody>
+      </table></div>
+      <h3 class="cmp-h">헤더별 차이</h3>
+      <div class="scroll"><table>
+        <thead><tr><th>헤더</th><th>응답 A</th><th>응답 B</th><th>구분</th></tr></thead>
+        <tbody id="cmp-headers"></tbody>
+      </table></div>
+      <p class="help">날짜·캐시·요청 ID처럼 매번 바뀌는 헤더는 "매번 바뀜"으로 따로 표시하고 차이로 세지 않습니다. ①·⑥은 헤더로 알 수 없어 비교하지 않습니다.</p>
+    </div>
+  </section>
+
   <section aria-labelledby="h-paper">
     <h2 id="h-paper">이 앱이 쓰는 논문 결과</h2>
     <ul class="paper-facts">
@@ -254,6 +299,10 @@ openssl s_client -connect 우리도메인:443 -tls1_1 &lt; /dev/null</pre>
       <li><b>핵심 결과</b>: 두 그룹의 차이 0.741점 가운데 0.647점이 ⑥ 구버전 TLS 차단 한 항목에서 나왔습니다(금융 89%, 공공 24%). 보안 헤더 ②~⑤는 두 그룹 모두 20% 이하였습니다.</li>
       <li><b>한계</b>: 논문은 메인 페이지 한 곳에서 헤더가 있는지만 봤습니다. 점수가 높다고 설정이 올바르다는 뜻은 아니고, 로그인·거래 페이지는 따로 봐야 합니다. 또 접속할 때 드러나는 설정만 재므로 실시간 탐지·대응(XDR), 웹 방화벽처럼 서버 안쪽의 방어는 반영하지 못합니다. 점수가 낮다고 위험한 사이트라는 뜻은 아닙니다. 또 일부 사이트는 자동 검사(스캔)에 일부러 정보를 빼거나 다른 헤더를 보내므로, 논문처럼 자동 도구로 잰 값과 브라우저로 본 값이 다를 수 있습니다.</li>
     </ul>
+    <div class="next">
+      <p class="kind">다음 연구</p>
+      <p>이 앱의 점수는 접속할 때 드러나는 설정만 봅니다. 앱으로 잰 결과를 실제 웹사이트 운영자에게 여쭤보니 "핵심 방어는 AI가 공격과 스캔을 거의 실시간으로 흘려보내는 것이고, 스캔에는 정보를 빼거나 다른 헤더를 보내는 등 여러 방식으로 대응한다"는 설명을 들었습니다. 그래서 후속 연구로 <b>겉으로 드러나는 설정 점수와 실제 방어의 차이</b>, 그리고 <b>자동 측정이 실제 방문자가 받는 응답을 얼마나 정확히 보여 주는가</b>를 계획하고 있습니다. 위의 「두 응답 비교하기」가 그 첫 도구입니다.</p>
+    </div>
   </section>
   </main>
 
@@ -574,6 +623,60 @@ openssl s_client -connect 우리도메인:443 -tls1_1 &lt; /dev/null</pre>
       else fallback();
     } catch (e) { fallback(); }
   });
+
+  // ── 두 응답 비교하기 ───────────────────────────────────────────
+  // 매번 바뀌는 헤더(날짜, 캐시, 요청 ID 등)는 차이로 세지 않는다
+  var VOLATILE = /^(date|age|expires|last-modified|etag|set-cookie|x-cache|x-cache-hits|via|cf-ray|x-request-id|x-amz-cf-id|x-amz-cf-pop|x-vercel-id|x-vercel-cache|x-served-by|x-timer|report-to|nel|content-length|keep-alive|connection|transfer-encoding|server-timing)$/;
+  var CMP_EXAMPLE = {
+    a: 'HTTP/2 200\ncontent-type: text/html; charset=utf-8\ndate: Thu, 05 Nov 2026 06:00:00 GMT\nserver: nginx\n' +
+       'strict-transport-security: max-age=31536000\nx-frame-options: SAMEORIGIN\nx-content-type-options: nosniff\ncache-control: no-store',
+    b: 'HTTP/1.1 200 OK\nContent-Type: text/html; charset=utf-8\nDate: Thu, 05 Nov 2026 06:00:07 GMT\nServer: unknown\n' +
+       'X-Powered-By: unknown\nCache-Control: no-store'
+  };
+  function cmpRun() {
+    var n = $('cmp-notice'); n.className = 'notice'; n.textContent = '';
+    var ra = ($('cmp-a').value || '').slice(0, MAX_INPUT), rb = ($('cmp-b').value || '').slice(0, MAX_INPUT);
+    var pa = parseHeaders(ra), pb = parseHeaders(rb);
+    if (!pa.count || !pb.count) {
+      n.className = 'notice err';
+      n.textContent = (!ra.trim() || !rb.trim()) ? '응답 A와 응답 B를 모두 붙여 넣어 주세요.' : '헤더를 찾지 못한 응답이 있습니다. "이름: 값" 형식의 헤더를 그대로 붙여 넣어 주세요.';
+      $('cmp-out').hidden = true; return;
+    }
+    var sa = scoreHeaders(pa.map).res, sb = scoreHeaders(pb.map).res;
+    var mark = function (v) { return v ? '<span class="st ok">✓</span>' : '<span class="st no">✗</span>'; };
+    var itemDiff = 0, ca = 0, cb = 0;
+    $('cmp-items').innerHTML = ITEMS.filter(function (it) { return it.id in sa; }).map(function (it) {
+      var same = sa[it.id] === sb[it.id]; if (!same) itemDiff++; if (sa[it.id]) ca++; if (sb[it.id]) cb++;
+      return '<tr><td>' + it.no + ' ' + esc(it.name) + '</td><td>' + mark(sa[it.id]) + '</td><td>' + mark(sb[it.id]) + '</td><td class="' + (same ? 'same">같음' : 'diff">다름') + '</td></tr>';
+    }).join('');
+    var names = {}; Object.keys(pa.map).concat(Object.keys(pb.map)).forEach(function (k) { names[k] = 1; });
+    var rows = [], hdrDiff = 0;
+    Object.keys(names).sort().forEach(function (k) {
+      var va = pa.map[k] ? pa.map[k].join(', ') : null, vb = pb.map[k] ? pb.map[k].join(', ') : null, cls, tag;
+      if (VOLATILE.test(k)) { cls = 'vol'; tag = '매번 바뀜'; }
+      else if (va === null) { cls = 'diff'; tag = 'B에만 있음'; hdrDiff++; }
+      else if (vb === null) { cls = 'diff'; tag = 'A에만 있음'; hdrDiff++; }
+      else if (va.trim().toLowerCase() === vb.trim().toLowerCase()) { cls = 'same'; tag = '같음'; }
+      else { cls = 'diff'; tag = '값이 다름'; hdrDiff++; }
+      rows.push({ k: k, va: va, vb: vb, cls: cls, tag: tag });
+    });
+    var order = { diff: 0, same: 1, vol: 2 };
+    rows.sort(function (x, y) { return order[x.cls] - order[y.cls]; });
+    var cut = function (v) { return v === null ? '<span class="help">(없음)</span>' : esc(v.length > 90 ? v.slice(0, 90) + '…' : v); };
+    $('cmp-headers').innerHTML = rows.map(function (r) {
+      return '<tr><td><code>' + esc(r.k) + '</code></td><td>' + cut(r.va) + '</td><td>' + cut(r.vb) + '</td><td class="' + r.cls + '">' + r.tag + '</td></tr>';
+    }).join('');
+    $('cmp-verdict').textContent = itemDiff
+      ? '두 응답의 보안 헤더 점수가 다릅니다(A ' + ca + '/4점, B ' + cb + '/4점). 같은 사이트가 받는 쪽에 따라 다른 설정을 보여 주고 있어, 어느 응답으로 재느냐에 따라 결과가 달라집니다.'
+      : (hdrDiff ? '보안 헤더 점수는 같지만(' + ca + '/4점), 헤더 ' + hdrDiff + '개가 다릅니다(아래 표). 서버 정보를 숨기는 등 받는 쪽에 따라 응답을 다르게 주고 있을 수 있습니다.'
+                 : '두 응답이 같습니다(보안 헤더 ' + ca + '/4점). 받는 쪽에 따라 설정이 달라지지 않았습니다.');
+    $('cmp-out').hidden = false;
+  }
+  $('cmp-run').addEventListener('click', function () {
+    try { cmpRun(); } catch (e) { $('cmp-notice').className = 'notice err'; $('cmp-notice').textContent = '입력을 읽다가 문제가 생겼습니다. 붙여 넣은 내용을 확인하고 다시 눌러 주세요.'; }
+  });
+  $('cmp-example').addEventListener('click', function () { $('cmp-a').value = CMP_EXAMPLE.a; $('cmp-b').value = CMP_EXAMPLE.b; cmpRun(); });
+  $('cmp-clear').addEventListener('click', function () { $('cmp-a').value = ''; $('cmp-b').value = ''; $('cmp-out').hidden = true; $('cmp-notice').textContent = ''; $('cmp-a').focus(); });
 
   // 시험용: 콘솔이나 자동 점검에서 같은 규칙을 쓸 수 있게
   window.__check = { parseHeaders: parseHeaders, scoreHeaders: scoreHeaders };
