@@ -7,13 +7,12 @@
 <meta name="description" content="류인수, 확실하게 하려는 사람. 이야기, 13주 기록의 숫자, 대표작, 이력서.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#F3F5F2; --sheet:#FBFCFA; --ink:#1B2430; --soft:#5B6573; --rule:#D3D9DE;
   --pen:#2A55C0; --check:#2F7A57; --line-blue:#C9D6F2;
   --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-  --hand:"Nanum Pen Script","Apple SD Gothic Neo",cursive;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#161B22; --sheet:#1B2129; --ink:#E4E8EC; --soft:#9AA4B0; --rule:#2E3742;
@@ -28,12 +27,13 @@ a:focus-visible{outline:2px solid var(--pen);outline-offset:3px;border-radius:2p
 /* 노트 한 장: 왼쪽 여백(손글씨 메모 자리) + 본문 칸 */
 .page{max-width:1040px;margin:0 auto;padding:0 16px}
 .row{display:grid;grid-template-columns:200px minmax(0,680px);column-gap:48px}
-.margin{font-family:var(--hand);color:var(--pen);font-size:30px;font-weight:400;line-height:1.1;margin:0;padding-top:2px}
-@media (max-width:900px){.row{grid-template-columns:1fr}.margin{padding-top:0;margin-bottom:4px}}
+.margin{align-self:start;text-align:right;font-size:16px;font-weight:700;line-height:1.5;color:var(--ink);margin:0;padding:3px 16px 2px 0;border-right:2px solid var(--ink)}
+.margin span{display:block;font-size:14px;font-weight:400;color:var(--soft)}
+.margin:empty{border:0;padding:0}
+@media (max-width:900px){.row{grid-template-columns:1fr}.margin{text-align:left;border-right:0;border-left:2px solid var(--ink);padding:0 0 0 12px;margin-bottom:10px}.margin:empty{display:none}}
 
 /* 첫 화면 */
 .hero{padding:88px 0 56px}
-.hero .who{font-size:15px;color:var(--soft);margin:0 0 20px}
 .hero h1{text-wrap:balance;font-weight:700;font-size:clamp(34px,6.4vw,58px);line-height:1.22;letter-spacing:-.02em;margin:0}
 @media (max-width:600px){.hero h1 br.wide{display:none}}
 .doors{display:flex;flex-wrap:wrap;gap:6px 28px;margin:40px 0 0;padding:0;list-style:none;font-weight:500}
@@ -56,7 +56,7 @@ h2{font-size:26px;font-weight:700;letter-spacing:-.01em;margin:0 0 6px}
 .ability h3{font-size:17px;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
 .ability ul{list-style:none;margin:0;padding:0}
 .ability li{font-size:15px;line-height:1.7;padding:10px 0;border-bottom:1px solid var(--rule)}
-.ability time{display:block;font-family:var(--hand);color:var(--pen);font-size:22px;line-height:1}
+.ability time{display:block;font-size:14px;font-weight:700;color:var(--pen);line-height:1.4}
 .ability .by{color:var(--soft);font-size:13px}
 
 /* 숫자: 장부처럼 */
@@ -69,7 +69,7 @@ h2{font-size:26px;font-weight:700;letter-spacing:-.01em;margin:0 0 6px}
 .ledger .val small{font-size:14px;font-weight:400;color:var(--soft);margin-left:3px}
 .ledger .group td{border-top:none;padding:28px 0 6px;font-size:14px;color:var(--soft);font-weight:500}
 .pair{margin:32px 0 0;padding:18px 20px;background:var(--sheet);border-left:3px solid var(--pen)}
-.pair .hand{display:block;font-family:var(--hand);color:var(--pen);font-size:25px;line-height:1.1;margin-bottom:6px}
+.pair strong{display:block;margin-bottom:4px}
 
 /* 대표작 */
 .feature{background:var(--sheet);border:1px solid var(--rule);border-top:3px solid var(--ink);padding:28px 28px 24px;margin:0 0 20px}
@@ -79,7 +79,7 @@ h2{font-size:26px;font-weight:700;letter-spacing:-.01em;margin:0 0 6px}
 .feature .result{display:inline-block;font-weight:700;color:var(--check)}
 .slot{border:2px dashed var(--rule);padding:22px 28px;display:flex;gap:20px;align-items:baseline;flex-wrap:wrap}
 .slot strong{font-size:17px}
-.slot .hand{font-family:var(--hand);color:var(--pen);font-size:25px}
+.slot .wait{color:var(--soft);font-size:15px}
 .slot p{margin:0;color:var(--soft);font-size:15px;flex-basis:100%}
 .all{margin-top:48px}
 .all h3{font-size:17px;margin:0 0 4px}
@@ -99,7 +99,7 @@ h2{font-size:26px;font-weight:700;letter-spacing:-.01em;margin:0 0 6px}
 .docs span{color:var(--soft);font-size:14px}
 
 footer{border-top:1px solid var(--rule);padding:48px 0 80px;color:var(--soft);font-size:15px}
-footer .hand{font-family:var(--hand);color:var(--pen);font-size:26px;display:block;margin-bottom:6px}
+footer strong{display:block;color:var(--ink);font-size:17px;margin-bottom:4px}
 </style>
 </head>
 <body>
@@ -120,12 +120,12 @@ footer .hand{font-family:var(--hand);color:var(--pen);font-size:26px;display:blo
 
 <section id="story" class="story">
   <div class="row"><div class="margin">이야기</div>
-    <div><h2>막혔던 날부터 지금까지</h2><p class="lead">장면마다 그 일이 있었던 때를 손글씨로 적어 두었습니다.</p></div>
+    <div><h2>막혔던 날부터 지금까지</h2><p class="lead">장면마다 그 일이 있었던 때와 곳을 적어 두었습니다.</p></div>
   </div>
   <div class="row"><div class="margin"></div><p class="opening">저는 확실하게 하려는 사람, 류인수입니다.</p></div>
-<div class="row chapter"><h3 class="margin">2023년 여름, 기상청 휴게실</h3><div><p>사회복무요원으로 근무하던 기상청 휴게실에서 학교에 전화를 걸었습니다. 대학 1·2학년 때 코딩이라는 벽에 막혀 F를 받은 과목도 있었고, 전공이 맞지 않는다고 생각해 복무하는 동안 주말마다 편입 학원에 다니던 중이었습니다. 돌아온 답은 학점이 모자라 편입 시험을 칠 수 없다는 것이었습니다. 복무 중에도 온라인 강의로 학점을 채울 수 있었다는 사실은 그제야 알았습니다. 확실하게 알아보지 않은 제 탓도 있었습니다.</p><p>지난 일은 되돌릴 수 없어서 전공으로 돌아갔습니다. 수업 중에는 최대한 많이 필기하고, 이해 못 한 부분은 메모해 두었다가 교수님께 물었고, 주말에는 녹화 강의로 애매한 곳을 한 번 더 짚었습니다. 성적은 1·2학년 때보다 나아졌고, 졸업작품 &#x27;차량 헤드라이트 검지를 통한 CCTV 시스템&#x27;처럼 A+를 받은 과목도 생겼습니다. 졸업 뒤에는 무엇을 하고 싶은지 몰라 막막했습니다. 토익 880점을 받고 공기업 인턴에 몇 군데 지원했지만 결과가 좋지 않았고, 그러다 SKT ALEPH 교육에 왔습니다.</p></div></div>
-<div class="row chapter"><h3 class="margin">2026년 9월 9일, 다시 교육장으로</h3><div><p>8월 말, 취업이 거의 확실하다는 반도체 직무 아카데미에 가느라 교육을 여러 날 빠졌습니다. 그런데 의심이 들어 준비하면서도 그 회사를 계속 알아봤습니다. 그곳에 다니는 이전 기수에게 전화로 묻고 여러 방면으로 확인해 보니(9월 10일 기록: &quot;답을 찾는 과정 자체에 거리낌이 없다&quot;), 전문성을 기르는 일보다 공장 잡일에 가까워 보였습니다. 평택까지 가서 PM 직무 면접을 보고 합격했지만, 가지 않고 이 교육을 끝까지 듣기로 했습니다.</p><p>9월 9일 돌아온 날, 리추얼 기록에 &quot;너무 걱정하지 말고 내 할 거를 열심히 하자&quot;라고 적었습니다. 다음 날 아침에는 &quot;너무 조급해하지 않는 나&quot;를 그날 지킬 가치로 정했습니다. 빠진 부분은 동료와 강사님께 물어 어느 정도 메웠습니다. 9월 22일에는 결석으로 설치하지 못한 실습 도구를 동료가 설치해 주었고, 그날 다른 동료는 &quot;놓친 부분을 포기하지 않는 모습이 동기부여가 된다&quot;고 말해 주었습니다. 저도 받기만 하지는 않았습니다. 9월 11일 동료는 제가 &quot;도움이 필요한 상황이 있으면 먼저 알아채고 도움을 주려고 한다&quot;고 말했습니다.</p></div></div>
-<div class="row chapter"><h3 class="margin">지금, 막히면 적고 다시 합니다</h3><div><p>9월 14일에는 소개 페이지 하나를 디자인이 마음에 들 때까지 만들고 지우기를 6번 반복했습니다. 10월 7일 방어전 실습에서는 무작정 시작하지 않고 전체 순서부터 확인했고, 10월 13일에는 통과하지 못한 부분을 왜 막혔는지 메모해 두고 &quot;내일은 조금 더 잘 풀릴 거다&quot;라고 적었습니다. 11월 4일에는 웹 공격을 막는 보안 장치를 직접 설정해, 방금까지 성공하던 공격이 막히는 것을 확인했습니다.</p><p>2023년의 저는 확실하게 알아보지 않아 길이 막혔습니다. 2026년의 저는 끝까지 알아본 다음 스스로 고를 수 있었습니다. 하고 싶은 일은 아직 뚜렷하지 않습니다. 그래서 이번에는 서두르지 않고, 제대로 알아보고 고르려고 합니다.</p></div></div>
+<div class="row chapter"><h3 class="margin">2023년 여름<span>기상청 휴게실</span></h3><div><p>사회복무요원으로 근무하던 기상청 휴게실에서 학교에 전화를 걸었습니다. 대학 1·2학년 때 코딩이라는 벽에 막혀 F를 받은 과목도 있었고, 전공이 맞지 않는다고 생각해 복무하는 동안 주말마다 편입 학원에 다니던 중이었습니다. 돌아온 답은 학점이 모자라 편입 시험을 칠 수 없다는 것이었습니다. 복무 중에도 온라인 강의로 학점을 채울 수 있었다는 사실은 그제야 알았습니다. 확실하게 알아보지 않은 제 탓도 있었습니다.</p><p>지난 일은 되돌릴 수 없어서 전공으로 돌아갔습니다. 수업 중에는 최대한 많이 필기하고, 이해 못 한 부분은 메모해 두었다가 교수님께 물었고, 주말에는 녹화 강의로 애매한 곳을 한 번 더 짚었습니다. 성적은 1·2학년 때보다 나아졌고, 졸업작품 &#x27;차량 헤드라이트 검지를 통한 CCTV 시스템&#x27;처럼 A+를 받은 과목도 생겼습니다. 졸업 뒤에는 무엇을 하고 싶은지 몰라 막막했습니다. 토익 880점을 받고 공기업 인턴에 몇 군데 지원했지만 결과가 좋지 않았고, 그러다 SKT ALEPH 교육에 왔습니다.</p></div></div>
+<div class="row chapter"><h3 class="margin">2026년 9월 9일<span>다시 교육장으로</span></h3><div><p>8월 말, 취업이 거의 확실하다는 반도체 직무 아카데미에 가느라 교육을 여러 날 빠졌습니다. 그런데 의심이 들어 준비하면서도 그 회사를 계속 알아봤습니다. 그곳에 다니는 이전 기수에게 전화로 묻고 여러 방면으로 확인해 보니(9월 10일 기록: &quot;답을 찾는 과정 자체에 거리낌이 없다&quot;), 전문성을 기르는 일보다 공장 잡일에 가까워 보였습니다. 평택까지 가서 PM 직무 면접을 보고 합격했지만, 가지 않고 이 교육을 끝까지 듣기로 했습니다.</p><p>9월 9일 돌아온 날, 리추얼 기록에 &quot;너무 걱정하지 말고 내 할 거를 열심히 하자&quot;라고 적었습니다. 다음 날 아침에는 &quot;너무 조급해하지 않는 나&quot;를 그날 지킬 가치로 정했습니다. 빠진 부분은 동료와 강사님께 물어 어느 정도 메웠습니다. 9월 22일에는 결석으로 설치하지 못한 실습 도구를 동료가 설치해 주었고, 그날 다른 동료는 &quot;놓친 부분을 포기하지 않는 모습이 동기부여가 된다&quot;고 말해 주었습니다. 저도 받기만 하지는 않았습니다. 9월 11일 동료는 제가 &quot;도움이 필요한 상황이 있으면 먼저 알아채고 도움을 주려고 한다&quot;고 말했습니다.</p></div></div>
+<div class="row chapter"><h3 class="margin">지금<span>막히면 적고 다시 합니다</span></h3><div><p>9월 14일에는 소개 페이지 하나를 디자인이 마음에 들 때까지 만들고 지우기를 6번 반복했습니다. 10월 7일 방어전 실습에서는 무작정 시작하지 않고 전체 순서부터 확인했고, 10월 13일에는 통과하지 못한 부분을 왜 막혔는지 메모해 두고 &quot;내일은 조금 더 잘 풀릴 거다&quot;라고 적었습니다. 11월 4일에는 웹 공격을 막는 보안 장치를 직접 설정해, 방금까지 성공하던 공격이 막히는 것을 확인했습니다.</p><p>2023년의 저는 확실하게 알아보지 않아 길이 막혔습니다. 2026년의 저는 끝까지 알아본 다음 스스로 고를 수 있었습니다. 하고 싶은 일은 아직 뚜렷하지 않습니다. 그래서 이번에는 서두르지 않고, 제대로 알아보고 고르려고 합니다.</p></div></div>
 </section>
 
 <section id="abilities">
@@ -165,7 +165,7 @@ footer .hand{font-family:var(--hand);color:var(--pen);font-size:26px;display:blo
 <tr class="group"><td colspan="2">내 제출 현황</td></tr>
 <tr><td class="what">마스터 승인 받은 과제<span class="src">1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11번</span></td><td class="val">11<small>개</small></td></tr>
       </table>
-      <div class="pair"><span class="hand">이 숫자는 이야기의 9월 9일 장면과 짝입니다</span>리추얼 기록이 비어 있는 평일 9일(2026-08-27 ~ 2026-09-08)은 반도체 직무 아카데미에 가 있던 기간입니다. 돌아온 뒤에는 2026-09-09 ~ 2026-11-04 사이에 33일을 다시 기록했습니다. 출처는 리추얼 기록입니다.</div>
+      <div class="pair"><strong>이 숫자는 이야기의 9월 9일 장면과 짝입니다</strong>리추얼 기록이 비어 있는 평일 9일(2026-08-27 ~ 2026-09-08)은 반도체 직무 아카데미에 가 있던 기간입니다. 돌아온 뒤에는 2026-09-09 ~ 2026-11-04 사이에 33일을 다시 기록했습니다. 출처는 리추얼 기록입니다.</div>
     </div>
   </div>
 </section>
@@ -174,19 +174,17 @@ footer .hand{font-family:var(--hand);color:var(--pen);font-size:26px;display:blo
   <div class="row"><div class="margin">대표작</div>
     <div>
       <h2>만든 것</h2>
-      <p class="lead">처음 보시는 분께 먼저 보여 드리고 싶은 논문과 그 논문으로 만든 앱, 그리고 과정에서 만든 것 전체입니다.</p>
+      <p class="lead">처음 보시는 분께 먼저 보여 드리고 싶은 두 가지와, 과정에서 만든 것 전체입니다.</p>
       <article class="feature">
         <p class="kind">10번 과제, 논문</p>
         <h3>금융권과 중앙행정기관 웹사이트의 보안 설정 비교: 보안 헤더와 구버전 TLS 차단을 중심으로</h3>
         <p>중앙행정기관 50곳과 금융회사 53곳의 메인 페이지를 6개 보안 항목으로 2026-11-03에 세 차례 측정했습니다. 금융 2.32점, 공공 1.58점으로 차이가 0.74점이라 미리 정한 기준 1점에 못 미쳐 가설을 기각했고, 차이의 대부분이 구버전 TLS 차단에서 나온다는 것을 확인해 다음 가설로 좁혔습니다.</p>
         <a href="paper.html">논문 전문 읽기</a>
       </article>
-      <article class="feature">
-        <p class="kind">13번 과제, 위 논문을 반영한 앱</p>
-        <h3>보안 설정 점검표</h3>
-        <p>이 앱은 금융·공공 웹사이트 담당자가 우리 사이트의 보안 설정을 논문의 6개 항목으로 채점하고, 금융 53곳·공공 50곳과 비교해 무엇부터 고칠지 알려 줍니다. 응답 헤더를 붙여 넣고 두 가지에 답하면, 논문 표 1의 평균·적용률과 나란히 놓인 점수와 고칠 순서가 나옵니다.</p>
-        <a href="../check/">앱 열기</a>
-      </article>
+      <div class="slot">
+        <strong>13번 과제, 앱</strong><span class="wait">자리 맡아 둠</span>
+        <p>13번 과제 예정일은 2026년 11월 5일입니다. 앱을 마치면 이 자리에 넣습니다.</p>
+      </div>
       <div class="all">
         <h3>과정에서 만든 것 전체</h3>
         <div class="scroll">
@@ -204,7 +202,7 @@ footer .hand{font-family:var(--hand);color:var(--pen);font-size:26px;display:blo
 <tr><td>9</td><td>나를 말하는 에이전트 — 서사 문서</td><td class="ok">마스터 승인</td></tr>
 <tr><td>10</td><td><a href="paper.html">AI와 함께 쓰는 첫 논문</a></td><td class="ok">마스터 승인</td></tr>
 <tr><td>11</td><td>나에 대한 장편소설</td><td class="ok">마스터 승인</td></tr>
-<tr><td>13</td><td><a href="../check/">보안 설정 점검표 — 10번 논문을 반영한 앱</a></td><td class="plan">제출</td></tr>
+<tr><td>13</td><td>마지막 과제 앱</td><td class="plan">예정</td></tr>
           </tbody>
         </table>
         </div>
@@ -230,9 +228,8 @@ footer .hand{font-family:var(--hand);color:var(--pen);font-size:26px;display:blo
 <footer class="row">
   <div class="margin"></div>
   <div>
-    <span class="hand">연락 주세요</span>
+    <strong>연락 주세요</strong>
     <a href="mailto:isssi611@gmail.com">isssi611@gmail.com</a>
-    <p>SKT ALEPH (대구 B반, 2026-08-11 개강) 수강 중</p>
     <p>이 페이지의 숫자와 장면 후보는 새 기록을 넣고 장치를 한 번 돌리면 다시 만들어집니다.</p>
   </div>
 </footer>
